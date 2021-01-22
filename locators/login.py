@@ -6,3 +6,4 @@ class LoginLocators:
     EMAIL_INPUT = (By.ID, 'email')
     PASSWORD_INPUT = (By.ID, 'passwd')
     SUBMIT_BUTTON = (By.ID, 'SubmitLogin')
+

@@ -1,0 +1,12 @@
+class MyAddressesValues:
+    first_name = "Ivan"
+    second_name = "Ivanov"
+    company_name = "Test"
+    address_name_1 = "Address"
+    address_name_2 = ""
+    city_part1 = "Kazan,"
+    city_part2 = "Alaska"
+    city_part3 = "00001"
+    country_name = "United States"
+    phone = "99999999999"
+    phone_mobile = "999999999"
