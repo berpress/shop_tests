@@ -1,7 +1,6 @@
 from locators.contact_us import ContactUsLocators
 from selenium.webdriver.support.ui import Select
 
-
 class ContactUsPage:
     def __init__(self, app):
         self.app = app
@@ -34,11 +33,12 @@ class ContactUsPage:
     def send_button_click(self):
         self.send_button().click()
 
-    def fill_contact_us_form(self):
-        self.subject_heading().select_by_value('1')
-        self.email_address().send_keys("anymail@mail.ru")
-        self.order_reference().send_keys("658679")
-        self.message_field().send_keys("RandomText")
-        self.send_button().click()
+
+    def fill_contact_us_form(self, value, address, order, message):
+        self.subject_heading().select_by_value(value)
+        self.email_address().send_keys(address)
+        self.order_reference().send_keys(order)
+        self.message_field().send_keys(message)
+        self.send_button()
 
 
