@@ -1,3 +1,4 @@
+from selenium.webdriver.support import expected_conditions as EC
 from locators.login import LoginLocators
 
 
