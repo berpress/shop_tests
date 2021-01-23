@@ -45,4 +45,3 @@ class LoginPage:
 
     def login_auth_alert_get_text(self):
         return self.login_auth_alert().text
-

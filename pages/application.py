@@ -10,7 +10,6 @@ class Application:
         self.driver = webdriver.Chrome(ChromeDriverManager().install())
         self.login = LoginPage(self)
 
-
     def open_main_page(self):
         self.driver.get(self.url)
 
