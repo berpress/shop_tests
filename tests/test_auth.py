@@ -1,4 +1,5 @@
-from common.constants import *
+from common.constants import Users, Alerts
+import pytest
 
 
 class TestAuth:
@@ -10,34 +11,17 @@ class TestAuth:
         4. Проверить имя
         """
         app.open_main_page()
-        email = EMAIL
-        password = PASSWORD
+        email = Users.EMAIL
+        password = Users.PASSWORD
         app.login.auth(email=email, password=password)
-        assert app.login.get_userdata() == ACCOUNT_DATA
+        assert app.login.get_userdata() == Users.ACCOUNT_DATA
         app.login.logout_button_click()
 
-    def test_auth_shop_invalid_password(self, app):
-        """
-        1. Открыть страницу
-        2. Кликнуть на login button
-        3. Ввести валидный email и невалидный password
-        4. Проверить текст alert'a
-        """
+    @pytest.mark.parametrize('email, password, alert', (
+            (Users.INVALID_EMAIL, Users.INVALID_PASSWORD, Alerts.ALERT_INVALID_DATA),
+            (Users.EMPTY_EMAIL, Users.EMPTY_PASSWORD, Alerts.ALERT_EMPTY_DATA)
+    ))
+    def test_invalid_auth(self, app, email, password, alert):
         app.open_main_page()
-        email = EMAIL
-        password = INVALID_PASSWORD
         app.login.auth(email=email, password=password)
-        assert app.login.login_auth_alert_get_text() == ALERT_INVALID_DATA
-
-    def test_auth_shop_empty_data(self, app):
-        """
-        1. Открыть страницу
-        2. Кликнуть на login button
-        3. Оставить поля email и password пустыми
-        4. Проверить текст alert'a
-        """
-        app.open_main_page()
-        email = EMPTY_EMAIL
-        password = EMPTY_PASSWORD
-        app.login.auth(email=email, password=password)
-        assert app.login.login_auth_alert_get_text() == ALERT_EMPTY_DATA
+        assert app.login.login_auth_alert_get_text() == alert
