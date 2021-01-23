@@ -2,7 +2,6 @@ from selenium.webdriver.common.by import By
 
 
 class ContactUsLocators:
-    CONTACT_US_FOOTER_BUTTON = (By.LINK_TEXT, "http://automationpractice.com/index.php?controller=contact")
     CONTACT_US_HEADER_BUTTON = (By.ID, "contact-link")
 
     EMAIL_ADDRESS_FIELD = (By.ID, "email")
