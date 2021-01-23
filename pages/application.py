@@ -1,4 +1,5 @@
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 
 from pages.login import LoginPage
 from pages.my_addresses import MyAddressesPage
@@ -7,8 +8,10 @@ from pages.my_addresses import MyAddressesPage
 class Application:
     def __init__(self, url):
         self.url = url
-        # self.driver = webdriver.Chrome(ChromeDriverManager().install())
-        self.driver = webdriver.Chrome('C:\chromedriver.exe')
+        try:
+            self.driver = webdriver.Chrome(ChromeDriverManager().install())
+        except ValueError:
+            self.driver = webdriver.Chrome('C:\chromedriver.exe')
         self.login = LoginPage(self)
         self.my_addresses = MyAddressesPage(self)
 
