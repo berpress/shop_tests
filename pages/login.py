@@ -12,9 +12,6 @@ class LoginPage:
     def sign_button_click(self):
         self.sign_button().click()
 
-    def wait_element_email(self):
-        return self.app.waiting(LoginLocators.EMAIL_INPUT)
-
     def _email_input(self):
         return self.app.driver.find_element(*LoginLocators.EMAIL_INPUT)
 
