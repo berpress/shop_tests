@@ -1,10 +1,6 @@
 from locators.contact_us import ContactUsLocators
-from faker import Faker
-from time import sleep
 from selenium.webdriver.support.ui import Select
-import os
 
-fake = Faker()
 
 class ContactUsPage:
     def __init__(self, app):
@@ -40,10 +36,9 @@ class ContactUsPage:
 
     def fill_contact_us_form(self):
         self.subject_heading().select_by_value('1')
-        self.email_address().send_keys(fake.email())
-        self.order_reference().send_keys(fake.random.randint(658679, 8900000))
-        self.attach_file().send_keys(os.getcwd() + "/sample_files/leaf.png")
-        self.message_field().send_keys(fake.text())
+        self.email_address().send_keys("anymail@mail.ru")
+        self.order_reference().send_keys("658679")
+        self.message_field().send_keys("RandomText")
         self.send_button().click()
 
 
