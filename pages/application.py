@@ -8,7 +8,8 @@ from pages.contact_us import ContactUsPage
 from pages.my_personal_info import MyPersonalInfoPage
 from pages.my_orders import MyOrdersPage
 from pages.my_credit_slips import MyCreditSlipsPage
-
+from pages.women_category_page import WomenCategoryPage
+from pages.order_page import OrderPage
 
 
 class Application:
@@ -19,7 +20,7 @@ class Application:
         try:
             self.driver = webdriver.Chrome(ChromeDriverManager().install())
         except ValueError:
-            self.driver = webdriver.Chrome('C:\chromedriver.exe')
+            self.driver = webdriver.Chrome(r"C:\chromedriver.exe")
         self.login = LoginPage(self)
         self.my_addresses = MyAddressesPage(self)
         self.driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
@@ -28,7 +29,8 @@ class Application:
         self.personal_info = MyPersonalInfoPage(self)
         self.my_orders = MyOrdersPage(self)
         self.my_credit_slips = MyCreditSlipsPage(self)
-
+        self.women_category_page = WomenCategoryPage(self)
+        self.order_page = OrderPage(self)
 
     def open_main_page(self):
         self.driver.get(self.url)
@@ -38,4 +40,3 @@ class Application:
 
     def browser_close(self):
         self.driver.quit()
-

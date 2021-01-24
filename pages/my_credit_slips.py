@@ -12,5 +12,8 @@ class MyCreditSlipsPage:
         self.my_credit_slips_button().click()
 
     def check(self):
-        """Функция которая кликает по кнопке 'my_orders info', добавлена для читабельности теста."""
+        """
+        Функция которая кликает по кнопке 'my_orders info',
+        добавлена для читабельности теста
+        """
         self.my_credit_slips_button_click()

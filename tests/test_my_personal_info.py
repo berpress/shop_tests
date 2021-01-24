@@ -10,6 +10,6 @@ class TestMyPersonalInfo:
         password = "Password11"
         app.login.auth(email=email, password=password)
         app.personal_info.check()
-        assert app.personal_info.get_name() == 'Ivan'
-        assert app.personal_info.get_lastname() == 'Ivanov'
+        assert app.personal_info.get_name() == "Ivan"
+        assert app.personal_info.get_lastname() == "Ivanov"
         app.login.logout_button_click()
