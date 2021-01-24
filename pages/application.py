@@ -3,7 +3,9 @@ from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 
 from pages.login import LoginPage
+from pages.contact_us import ContactUsPage
 from pages.my_personal_info import MyPersonalInfoPage
+
 
 
 class Application:
@@ -13,6 +15,7 @@ class Application:
         self.url = url
         self.driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
         self.login = LoginPage(self)
+        self.contact_us = ContactUsPage(self)
         self.personal_info = MyPersonalInfoPage(self)
 
     def open_main_page(self):
