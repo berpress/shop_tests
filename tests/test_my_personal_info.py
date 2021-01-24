@@ -12,3 +12,4 @@ class TestMyPersonalInfo:
         app.personal_info.check()
         assert app.personal_info.get_name() == 'Ivan'
         assert app.personal_info.get_lastname() == 'Ivanov'
+        app.login.logout_button_click()

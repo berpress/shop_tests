@@ -6,6 +6,8 @@ from pages.login import LoginPage
 from pages.my_addresses import MyAddressesPage
 from pages.contact_us import ContactUsPage
 from pages.my_personal_info import MyPersonalInfoPage
+from pages.my_orders import MyOrdersPage
+from pages.my_credit_slips import MyCreditSlipsPage
 
 
 
@@ -24,6 +26,8 @@ class Application:
         self.login = LoginPage(self)
         self.contact_us = ContactUsPage(self)
         self.personal_info = MyPersonalInfoPage(self)
+        self.my_orders = MyOrdersPage(self)
+        self.my_credit_slips = MyCreditSlipsPage(self)
 
 
     def open_main_page(self):
