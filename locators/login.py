@@ -8,3 +8,4 @@ class LoginLocators:
     SUBMIT_BUTTON = (By.ID, 'SubmitLogin')
     LOGOUT_BUTTON = (By.CLASS_NAME, 'logout')
     ALERT = (By.XPATH, '//*[@class="alert alert-danger"]')
+

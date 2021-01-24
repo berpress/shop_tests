@@ -3,6 +3,7 @@ from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 
 from pages.login import LoginPage
+from pages.my_addresses import MyAddressesPage
 from pages.contact_us import ContactUsPage
 from pages.my_personal_info import MyPersonalInfoPage
 
@@ -13,10 +14,17 @@ class Application:
         options: Options = Options()
         options.headless = True
         self.url = url
+        try:
+            self.driver = webdriver.Chrome(ChromeDriverManager().install())
+        except ValueError:
+            self.driver = webdriver.Chrome('C:\chromedriver.exe')
+        self.login = LoginPage(self)
+        self.my_addresses = MyAddressesPage(self)
         self.driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
         self.login = LoginPage(self)
         self.contact_us = ContactUsPage(self)
         self.personal_info = MyPersonalInfoPage(self)
+
 
     def open_main_page(self):
         self.driver.get(self.url)
@@ -26,5 +34,4 @@ class Application:
 
     def browser_close(self):
         self.driver.quit()
-
 
