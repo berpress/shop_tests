@@ -11,6 +11,15 @@ def app(request):
     app.browser_close()
 
 
+@pytest.fixture
+def login(request, app):
+    login = request.config.getoption("--username")
+    passwd = request.config.getoption("--password")
+    app.open_main_page()
+    if app.login.logout_button() == 0:
+        app.login.auth(login, passwd)
+
+
 def pytest_addoption(parser):
     parser.addoption(
         "--base-url",
