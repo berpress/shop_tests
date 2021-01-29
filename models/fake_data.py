@@ -26,20 +26,16 @@ class Address:
         company,
         address,
         city,
-        state,
-        postal_code,
         country,
-        mobile_phone,
+        phone,
         building,
         street,
     ):
         self.company = company
         self.address = address
         self.city = city
-        self.state = state
-        self.postal_code = postal_code
         self.country = country
-        self.mobile_phone = mobile_phone
+        self.phone = phone
         self.building = building
         self.street = street
 
@@ -49,10 +45,8 @@ class Address:
             company=fake.company(),
             address=fake.address(),
             city=fake.city(),
-            state=fake.state(),
-            postal_code=fake.postcode(),
             country=fake.country(),
-            mobile_phone=fake.phone(),
+            phone=fake.phone_number(),
             building=fake.building_number(),
             street=fake.street_name(),
         )
