@@ -18,12 +18,13 @@ class Application:
         options.headless = True
         self.url = url
         try:
-            self.driver = webdriver.Chrome(ChromeDriverManager().install())
+            self.driver = webdriver.Chrome(
+                ChromeDriverManager().install(), options=options
+            )
         except ValueError:
-            self.driver = webdriver.Chrome(r"C:\chromedriver.exe")
+            self.driver = webdriver.Chrome(r"C:\chromedriver.exe", options=options)
         self.login = LoginPage(self)
         self.my_addresses = MyAddressesPage(self)
-        self.driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
         self.login = LoginPage(self)
         self.contact_us = ContactUsPage(self)
         self.personal_info = MyPersonalInfoPage(self)
