@@ -13,7 +13,7 @@ from pages.my_personal_info import MyPersonalInfoPage
 class Application:
     def __init__(self, url):
         options: Options = Options()
-        options.headless = False
+        options.headless = True
         self.url = url
         try:
             self.driver = webdriver.Chrome(

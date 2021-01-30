@@ -17,7 +17,7 @@ def login(request, app):
     passwd = request.config.getoption("--password")
     app.open_main_page()
     if app.login.logout_button() == 0:
-        app.login.auth(login, passwd)
+        app.login.auth(login, passwd)                                     
 
 
 def pytest_addoption(parser):
@@ -44,4 +44,4 @@ def pytest_addoption(parser):
         action="store",
         default=True,
         help="launching browser without gui",
-    ),
+    )
