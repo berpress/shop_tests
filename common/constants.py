@@ -1,7 +1,9 @@
 class Users:
     ACCOUNT_DATA = "Ivan Ivanov"
-    EMAIL = "test74@test.com"
-    PASSWORD = "Password11"
+    EMAIL = "olesya1234562009@rambler.ru"
+    PASSWORD = "qwerty123"
+    # EMAIL = "test74@test.com"
+    # PASSWORD = "Password11"
     INVALID_EMAIL = "test44@test.com"
     INVALID_PASSWORD = "Password22"
     EMPTY_EMAIL = ""
@@ -12,6 +14,6 @@ class Alerts:
     ALERT_INVALID_DATA = "There is 1 error\nAuthentication failed."
     ALERT_EMPTY_DATA = "There is 1 error\nAn email address required."
 
+
 class Cart:
     YOUR_SHOPPING_CART = "Your shopping cart"
-

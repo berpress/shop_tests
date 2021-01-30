@@ -20,7 +20,6 @@ from pages.registration import RegistrationPage
 from pages.filtering_women import FilteringWomenPage
 
 
-
 logger = logging.getLogger()
 
 
@@ -29,7 +28,7 @@ class Application:
         setup("INFO")
         logger.setLevel("INFO")
         options: Options = Options()
-        options.headless = True
+        options.headless = False
         self.url = url
         try:
             self.driver = webdriver.Chrome(
@@ -39,7 +38,6 @@ class Application:
             self.driver = webdriver.Chrome(r"C:\chromedriver.exe", options=options)
         self.login = LoginPage(self)
         self.my_addresses = MyAddressesPage(self)
-        self.login = LoginPage(self)
         self.contact_us = ContactUsPage(self)
         self.personal_info = MyPersonalInfoPage(self)
         self.my_orders = MyOrdersPage(self)

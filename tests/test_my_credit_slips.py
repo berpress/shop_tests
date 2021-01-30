@@ -1,6 +1,3 @@
-from common.constants import Users
-
-
 class TestMyOrders:
     def test_my_orders(self, app, login):
         """
