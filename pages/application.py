@@ -8,7 +8,9 @@ from pages.contact_us import ContactUsPage
 from pages.my_personal_info import MyPersonalInfoPage
 from pages.my_orders import MyOrdersPage
 from pages.my_credit_slips import MyCreditSlipsPage
+from pages.registration import RegistrationPage
 from pages.filtering_women import FilteringWomenPage
+
 
 
 class Application:
@@ -30,6 +32,7 @@ class Application:
         self.personal_info = MyPersonalInfoPage(self)
         self.my_orders = MyOrdersPage(self)
         self.my_credit_slips = MyCreditSlipsPage(self)
+        self.registration = RegistrationPage(self)
         self.filtering_women = FilteringWomenPage(self)
 
     def open_main_page(self):
