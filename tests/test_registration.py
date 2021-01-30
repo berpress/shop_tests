@@ -1,4 +1,3 @@
-from time import sleep
 from models.fake_data import UserData, Address, Date
 
 
@@ -17,9 +16,7 @@ class TestRegistration:
         date = Date.random()
         addr = Address.random()
         app.open_main_page()
-        sleep(3)
         app.registration.go_to_registration_form(email)
-        sleep(3)
         app.registration.fill_personal_information(
             user.password, user.first_name, user.last_name, date.year
         )
@@ -31,5 +28,4 @@ class TestRegistration:
             addr.country,
             addr.phone,
         )
-        sleep(10)
         assert app.registration.account_header() == "MY ACCOUNT"
