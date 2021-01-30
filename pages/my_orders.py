@@ -12,5 +12,6 @@ class MyOrdersPage:
         self.my_orders_button().click()
 
     def check(self):
-        """Функция которая кликает по кнопке 'my_orders info', добавлена для читабельности теста."""
+        """Функция которая кликает по кнопке 'my_orders info',
+        добавлена для читабельности теста."""
         self.my_orders_button_click()

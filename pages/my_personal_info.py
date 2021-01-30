@@ -14,8 +14,10 @@ class MyPersonalInfoPage:
         self.my_personal_info_button().click()
 
     def check(self):
-        """Функция которая кликает по кнопке 'my_personal info',
-        добавлена для читабельности теста."""
+        """
+        Функция которая кликает по кнопке 'my_personal info',
+        добавлена для читабельности теста
+        """
         self.my_personal_info_button_click()
 
     def firstname_input(self):
