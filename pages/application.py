@@ -1,7 +1,11 @@
+import logging
+
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 
+
+from common.logger import setup
 from pages.contact_us import ContactUsPage
 from pages.login import LoginPage
 from pages.my_addresses import MyAddressesPage
@@ -17,9 +21,13 @@ from pages.filtering_women import FilteringWomenPage
 
 
 
+logger = logging.getLogger()
+
 
 class Application:
     def __init__(self, url):
+        setup("INFO")
+        logger.setLevel("INFO")
         options: Options = Options()
         options.headless = True
         self.url = url
@@ -42,6 +50,7 @@ class Application:
         self.filtering_women = FilteringWomenPage(self)
 
     def open_main_page(self):
+        logger.info("Open main page")
         self.driver.get(self.url)
 
     def open_page(self, url: str):
