@@ -17,7 +17,7 @@ def login(request, app):
     passwd = request.config.getoption("--password")
     app.open_main_page()
     if app.login.logout_button() == 0:
-        app.login.auth(login, passwd)                                     
+        app.login.auth(login, passwd)
 
 
 def pytest_addoption(parser):
@@ -28,16 +28,10 @@ def pytest_addoption(parser):
         help="enter base_url",
     ),
     parser.addoption(
-        "--username",
-        action="store",
-        default="test74@test.com",
-        help="enter username",
+        "--username", action="store", default="admin@admin.ru", help="enter username",
     ),
     parser.addoption(
-        "--password",
-        action="store",
-        default="Password11",
-        help="enter password",
+        "--password", action="store", default="admin", help="enter password",
     ),
     parser.addoption(
         "--headless",
@@ -45,4 +39,3 @@ def pytest_addoption(parser):
         default=True,
         help="launching browser without gui",
     ),
-
