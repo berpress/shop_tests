@@ -3,11 +3,7 @@ from common.constants import Users
 
 
 class TestMyAddresses:
-    def test_my_addresses(self, app):
-        app.open_main_page()
-        email = "test74@test.com"
-        password = "Password11"
-        app.login.auth(email=email, password=password)
+    def test_my_addresses(self, app, login):
         app.my_addresses.open_my_addresses()
         assert (
             app.my_addresses.get_first_and_second_name()[0]

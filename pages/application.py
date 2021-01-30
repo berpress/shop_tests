@@ -2,17 +2,19 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 
+from pages.contact_us import ContactUsPage
 from pages.login import LoginPage
 from pages.my_addresses import MyAddressesPage
-from pages.contact_us import ContactUsPage
-from pages.my_personal_info import MyPersonalInfoPage
-from pages.my_orders import MyOrdersPage
 from pages.my_credit_slips import MyCreditSlipsPage
+from pages.my_orders import MyOrdersPage
+from pages.my_personal_info import MyPersonalInfoPage
+
 
 from pages.women_category_page import WomenCategoryPage
 from pages.order_page import OrderPage
 from pages.registration import RegistrationPage
 from pages.filtering_women import FilteringWomenPage
+
 
 
 
@@ -38,7 +40,6 @@ class Application:
         self.order_page = OrderPage(self)
         self.registration = RegistrationPage(self)
         self.filtering_women = FilteringWomenPage(self)
-
 
     def open_main_page(self):
         self.driver.get(self.url)
