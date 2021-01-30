@@ -1,6 +1,7 @@
 from locators.contact_us import ContactUsLocators
 from selenium.webdriver.support.ui import Select
 
+
 class ContactUsPage:
     def __init__(self, app):
         self.app = app
@@ -13,7 +14,7 @@ class ContactUsPage:
         self.contact_us_header_button().click()
 
     def subject_heading(self):
-        return Select(self.app.driver.find_element_by_id('id_contact'))
+        return Select(self.app.driver.find_element_by_id("id_contact"))
 
     def email_address(self):
         return self.app.driver.find_element(*ContactUsLocators.EMAIL_ADDRESS_FIELD)
@@ -40,8 +41,9 @@ class ContactUsPage:
         return self.app.driver.find_element(*ContactUsLocators.SUCCESS_ALERT)
 
     def check_success_alert(self) -> bool:
-        return self.app.driver.find_element(*ContactUsLocators.SUCCESS_ALERT).is_displayed()
-
+        return self.app.driver.find_element(
+            *ContactUsLocators.SUCCESS_ALERT
+        ).is_displayed()
 
     def fill_contact_us_form(self, value, address, order, message):
         self.subject_heading().select_by_value(value)
@@ -49,5 +51,3 @@ class ContactUsPage:
         self.order_reference().send_keys(order)
         self.message_field().send_keys(message)
         self.send_button_click()
-
-

@@ -1,11 +1,18 @@
 from common.my_addresses_values import MyAddressesValues
+from common.constants import Users
 
 
 class TestMyAddresses:
     def test_my_addresses(self, app, login):
         app.my_addresses.open_my_addresses()
-        assert app.my_addresses.get_first_and_second_name()[0] == MyAddressesValues.first_name
-        assert app.my_addresses.get_first_and_second_name()[1] == MyAddressesValues.second_name
+        assert (
+            app.my_addresses.get_first_and_second_name()[0]
+            == MyAddressesValues.first_name
+        )
+        assert (
+            app.my_addresses.get_first_and_second_name()[1]
+            == MyAddressesValues.second_name
+        )
         assert app.my_addresses.get_company_name() == MyAddressesValues.company_name
         assert app.my_addresses.get_address_name1() == MyAddressesValues.address_name_1
         assert app.my_addresses.get_address_name2() == MyAddressesValues.address_name_2
@@ -15,3 +22,4 @@ class TestMyAddresses:
         assert app.my_addresses.get_country_name() == MyAddressesValues.country_name
         assert app.my_addresses.get_phone() == MyAddressesValues.phone
         assert app.my_addresses.get_phone_mobile() == MyAddressesValues.phone_mobile
+        app.login.logout_button_click()

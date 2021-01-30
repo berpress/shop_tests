@@ -3,7 +3,7 @@ import pytest
 from pages.application import Application
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope="session")
 def app(request):
     url = request.config.getoption("--base-url")
     app = Application(url)
@@ -44,4 +44,5 @@ def pytest_addoption(parser):
         action="store",
         default=True,
         help="launching browser without gui",
-    )
+    ),
+
