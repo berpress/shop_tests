@@ -30,7 +30,7 @@ def pytest_addoption(parser):
     parser.addoption(
         "--username",
         action="store",
-        default="admin@admin.ru",
+        default="admin2@admin.ru",
         help="enter username",
     ),
     parser.addoption(

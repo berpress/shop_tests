@@ -1,8 +1,11 @@
-from common.constants import Cart
+from common.constants import Users, Cart
+import allure
 
 
 class TestAddToCart:
-    def test_add_to_cart(self, app, login):
+    @allure.story("Добавление товара в корзину")
+    @allure.severity("blocker")
+    def test_add_to_cart(self, app):
         """
         1. Выбрать раздел Women
         2. Переместить мышь на карточку товара

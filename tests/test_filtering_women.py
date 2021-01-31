@@ -1,5 +1,11 @@
+from common.constants import Users
+import allure
+
+
 class TestMyOrders:
-    def test_filtering_women(self, app, login):
+    @allure.story("Кликаем рандомно на кнопки из фильтра")
+    @allure.severity("minor")
+    def test_filtering_women(self, app):
         """
         1. Открыть страницу
         2. Кликнуть на кнопку Women

@@ -14,6 +14,7 @@ from pages.my_orders import MyOrdersPage
 from pages.my_personal_info import MyPersonalInfoPage
 from pages.order_page import OrderPage
 from pages.registration import RegistrationPage
+from pages.filtering_women import FilteringWomenPage
 from pages.women_category_page import WomenCategoryPage
 
 logger = logging.getLogger()
