@@ -1,5 +1,8 @@
 import time
 
+import allure
+from allure_commons.types import AttachmentType
+
 from locators.login import LoginLocators
 
 
@@ -53,3 +56,11 @@ class LoginPage:
 
     def login_auth_alert_get_text(self):
         return self.login_auth_alert().text
+
+    def allure_attach(self):
+        with allure.step("Делаем скриншот"):
+            allure.attach(
+                self.app.driver.get_screenshot_as_png(),
+                name="Screenshot",
+                attachment_type=AttachmentType.PNG,
+            )

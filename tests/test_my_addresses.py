@@ -1,8 +1,10 @@
 from common.my_addresses_values import MyAddressesValues
-from common.constants import Users
+import allure
 
 
 class TestMyAddresses:
+    @allure.story("Проверяем данные на соответствие")
+    @allure.severity("minor")
     def test_my_addresses(self, app, login):
         app.my_addresses.open_my_addresses()
         assert (

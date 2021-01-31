@@ -20,7 +20,6 @@ from pages.registration import RegistrationPage
 from pages.filtering_women import FilteringWomenPage
 
 
-
 logger = logging.getLogger()
 
 

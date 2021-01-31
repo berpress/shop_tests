@@ -1,7 +1,9 @@
-from common.constants import Users
+import allure
 
 
 class TestMyOrders:
+    @allure.story("Открываем страницу и кликаем на My Credit Slips")
+    @allure.severity("minor")
     def test_my_orders(self, app, login):
         """
         1. Открыть страницу

@@ -1,7 +1,10 @@
 from common.constants import Users
+import allure
 
 
 class TestMyOrders:
+    @allure.story("Кликаем рандомно на кнопки из фильтра")
+    @allure.severity("minor")
     def test_filtering_women(self, app):
         """
         1. Открыть страницу
