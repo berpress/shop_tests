@@ -12,6 +12,6 @@ class Alerts:
     ALERT_INVALID_DATA = "There is 1 error\nAuthentication failed."
     ALERT_EMPTY_DATA = "There is 1 error\nAn email address required."
 
+
 class Cart:
     YOUR_SHOPPING_CART = "Your shopping cart"
-
