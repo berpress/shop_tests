@@ -36,7 +36,7 @@ def pytest_addoption(parser):
     parser.addoption(
         "--password",
         action="store",
-        default="Password11",
+        default="admin",
         help="enter password",
     ),
     parser.addoption(

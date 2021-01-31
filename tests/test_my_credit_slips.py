@@ -1,6 +1,5 @@
 import allure
 
-
 class TestMyOrders:
     @allure.story("Открываем страницу и кликаем на My Credit Slips")
     @allure.severity("minor")
