@@ -6,7 +6,6 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 from common.logger import setup
 from pages.contact_us import ContactUsPage
-from pages.filtering_women import FilteringWomenPage
 from pages.login import LoginPage
 from pages.my_addresses import MyAddressesPage
 from pages.my_credit_slips import MyCreditSlipsPage

@@ -15,12 +15,20 @@ class WomenCategoryPage:
         self.women_category_button().click()
 
     def women_category(self):
+        self.app.driver.implicitly_wait(10)
         self.women_category_button_click()
 
     def find_good_cart(self):
+        self.app.driver.implicitly_wait(10)
         return self.app.driver.find_element(*WomenCategoryLocators.GOOD_CART)
 
     def move_to_good(self):
+        """
+        1. Находим карточку товара
+        2. Находим кнопку "Add to cart"
+        3. Запускаем цепочку действий наведения мыши
+        по этим элементам с кликом по кнопке
+        """
         good_cart = self.find_good_cart()
         add_to_cart_button = self.add_to_cart_button()
         ActionChains(self.app.driver).move_to_element(good_cart).move_to_element(
@@ -28,6 +36,7 @@ class WomenCategoryPage:
         ).click().perform()
 
     def add_to_cart_button(self):
+        self.app.driver.implicitly_wait(10)
         return self.app.driver.find_element(*WomenCategoryLocators.ADD_TO_CART)
 
     def proceed_to_checkout_button(self):

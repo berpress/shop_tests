@@ -3,9 +3,9 @@ from selenium.webdriver.common.by import By
 
 class RegistrationLocators:
 
-    SIGN_IN_BUTTON = (By.CLASS_NAME, "login")
-    EMAIL_CREATE = (By.ID, "email_create")
-    CREATE_ACCOUNT_BUTTON = (By.ID, "SubmitCreate")
+    SIGN_IN_BUTTON = (By.CLASS_NAME, "header_user_info")
+    EMAIL_CREATE = (By.XPATH, '//*[@id="email_create"]')
+    CREATE_ACCOUNT_BUTTON = (By.XPATH, '//*[@id="SubmitCreate"]')
     HEADING = (By.CLASS_NAME, "page-subheading")
     MR_RADIOBUTTON = (By.ID, "id_gender1")
     MRS_RADIOBUTTON = (By.ID, "id_gender2")
