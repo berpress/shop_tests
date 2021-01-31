@@ -1,5 +1,9 @@
+import logging
+
 from locators.proceed_to_checkout import ProceedToCheckoutLocators
 from models.iter_info import IterData
+
+logger = logging.getLogger()
 
 
 class ProceedToCheckoutPage:
@@ -25,9 +29,11 @@ class ProceedToCheckoutPage:
         )
 
     def check_delivery_address(self):
+        logger.info("Итерация по информации delivery")
         IterData.check_data(self.delivery_address())
 
     def check_billing_address(self):
+        logger.info("Итерация по информации billing address")
         IterData.check_data(self.billing_address())
 
     def address_proceed_to_checkout_button(self):
@@ -58,6 +64,7 @@ class ProceedToCheckoutPage:
         return self.app.driver.find_elements(*ProceedToCheckoutLocators.PAYMENT_INFO)
 
     def check_payment_info(self):
+        logger.info("Итерация по информации payment")
         IterData.check_data(self.payment_info())
 
     def pay_by_bank_wire_button(self):
@@ -78,6 +85,7 @@ class ProceedToCheckoutPage:
         )
 
     def check_my_store_complete_info(self):
+        logger.info("Итерация по информации товара которого купили")
         IterData.check_data(self.my_store_complete_info())
 
     def buying(self):
