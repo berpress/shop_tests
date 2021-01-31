@@ -12,3 +12,4 @@ class TestMyCreditSlips:
         """
         app.my_credit_slips.check()
         assert app.my_credit_slips.my_c_s_field_text() == MyCreditSlips.MY_CREDIT_SLIPS
+        app.login.logout_button_click()
