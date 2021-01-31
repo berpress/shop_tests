@@ -19,7 +19,7 @@ class SearchGoods:
         return self.app.driver.find_element(*SearchLocators.NOT_FOUND_ALERT).text
 
     def found_items(self):
-        return self.app.driver.find_elements_by_class_name("product-name")
+        return self.app.driver.find_elements(*SearchLocators.FOUND_ITEMS)
 
     def check_found_item(self, str):
         """Проверка заголовков найденных элементов на вхождение строки"""

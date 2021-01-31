@@ -9,4 +9,4 @@ class SearchLocators:
     SEARCH_FIELD = (By.ID, "search_query_top")
     SEARCH_BUTTON = (By.NAME, "submit_search")
     NOT_FOUND_ALERT = (By.ID, "center_column")
-    FOUND_ITEM = (By.CLASS_NAME, "product-name")
+    FOUND_ITEMS = (By.CLASS_NAME, "product-name")

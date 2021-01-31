@@ -12,6 +12,16 @@ class Alerts:
     ALERT_INVALID_DATA = "There is 1 error\nAuthentication failed."
     ALERT_EMPTY_DATA = "There is 1 error\nAn email address required."
 
+
 class Cart:
     YOUR_SHOPPING_CART = "Your shopping cart"
 
+
+class SearchStrings:
+    """Строки для параметризации теста поиска по каталогу"""
+
+    PART_OF_WORD = "dre"
+    ONE_WORD = "dress"
+    TWO_WORDS = "Printed Summer"
+    ONE_WORD_NEGATIVE = "siurhfsuew"
+    TWO_WORDS_NEGATIVE = "siurh fsuew"
