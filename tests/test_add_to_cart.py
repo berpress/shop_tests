@@ -1,7 +1,10 @@
 from common.constants import Users, Cart
+import allure
 
 
 class TestAddToCart:
+    @allure.story("Добавление товара в корзину")
+    @allure.severity("blocker")
     def test_add_to_cart(self, app):
         """
         1. Выбрать раздел Women
@@ -10,9 +13,6 @@ class TestAddToCart:
         4. Перейти к оформлению заказа
         """
         app.open_main_page()
-        email = Users.EMAIL
-        password = Users.PASSWORD
-        app.login.auth(email=email, password=password)
         app.women_category_page.women_category()
         app.women_category_page.move_to_good()
         app.women_category_page.proceed_to_checkout()

@@ -1,7 +1,10 @@
 from models.fake_data import UserData, Address, Date
+import allure
 
 
 class TestRegistration:
+    @allure.story("Открываем страницу и регистрируемся")
+    @allure.severity("critical")
     def test_registration(self, app):
         """
         1. Открыть главную страницу

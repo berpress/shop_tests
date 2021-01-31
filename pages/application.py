@@ -4,9 +4,9 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 
-
 from common.logger import setup
 from pages.contact_us import ContactUsPage
+from pages.filtering_women import FilteringWomenPage
 from pages.login import LoginPage
 from pages.my_addresses import MyAddressesPage
 from pages.my_credit_slips import MyCreditSlipsPage
@@ -20,6 +20,10 @@ from pages.order_page import OrderPage
 from pages.registration import RegistrationPage
 from pages.filtering_women import FilteringWomenPage
 
+from pages.order_page import OrderPage
+from pages.registration import RegistrationPage
+from pages.filtering_women import FilteringWomenPage
+from pages.women_category_page import WomenCategoryPage
 
 logger = logging.getLogger()
 
@@ -39,7 +43,6 @@ class Application:
             self.driver = webdriver.Chrome(r"C:\chromedriver.exe", options=options)
         self.login = LoginPage(self)
         self.my_addresses = MyAddressesPage(self)
-        self.login = LoginPage(self)
         self.contact_us = ContactUsPage(self)
         self.personal_info = MyPersonalInfoPage(self)
         self.my_orders = MyOrdersPage(self)
