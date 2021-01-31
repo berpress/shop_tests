@@ -2,8 +2,6 @@ class Users:
     ACCOUNT_DATA = "Ivan Ivanov"
     EMAIL = "olesya1234562009@rambler.ru"
     PASSWORD = "qwerty123"
-    # EMAIL = "test74@test.com"
-    # PASSWORD = "Password11"
     INVALID_EMAIL = "test44@test.com"
     INVALID_PASSWORD = "Password22"
     EMPTY_EMAIL = ""

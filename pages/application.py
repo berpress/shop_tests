@@ -4,21 +4,17 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 
-
 from common.logger import setup
 from pages.contact_us import ContactUsPage
+from pages.filtering_women import FilteringWomenPage
 from pages.login import LoginPage
 from pages.my_addresses import MyAddressesPage
 from pages.my_credit_slips import MyCreditSlipsPage
 from pages.my_orders import MyOrdersPage
 from pages.my_personal_info import MyPersonalInfoPage
-
-
-from pages.women_category_page import WomenCategoryPage
 from pages.order_page import OrderPage
 from pages.registration import RegistrationPage
-from pages.filtering_women import FilteringWomenPage
-
+from pages.women_category_page import WomenCategoryPage
 
 logger = logging.getLogger()
 
@@ -28,7 +24,7 @@ class Application:
         setup("INFO")
         logger.setLevel("INFO")
         options: Options = Options()
-        options.headless = False
+        options.headless = True
         self.url = url
         try:
             self.driver = webdriver.Chrome(
