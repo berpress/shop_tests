@@ -28,10 +28,16 @@ def pytest_addoption(parser):
         help="enter base_url",
     ),
     parser.addoption(
-        "--username", action="store", default="admin@admin.ru", help="enter username",
+        "--username",
+        action="store",
+        default="admin@admin.ru",
+        help="enter username",
     ),
     parser.addoption(
-        "--password", action="store", default="admin", help="enter password",
+        "--password",
+        action="store",
+        default="admin",
+        help="enter password",
     ),
     parser.addoption(
         "--headless",

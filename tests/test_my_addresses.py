@@ -1,9 +1,13 @@
 from common.my_addresses_values import MyAddressesValues
-from common.constants import Users
 
 
 class TestMyAddresses:
     def test_my_addresses(self, app, login):
+        """
+        1. Авторизоваться
+        2. Выбрать раздел My addresses в футере
+        3. Проверить, что информация соотвествует данным пользователя при регистрации
+        """
         app.my_addresses.open_my_addresses()
         assert (
             app.my_addresses.get_first_and_second_name()[0]
