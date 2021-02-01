@@ -18,7 +18,7 @@ from pages.women_category_page import WomenCategoryPage
 from pages.order_page import OrderPage
 from pages.registration import RegistrationPage
 from pages.filtering_women import FilteringWomenPage
-from pages.proceed_to_checkout import ProceedToCheckoutPage
+from pages.proceed_to_checkout import ShoppingCartPage
 
 
 logger = logging.getLogger()
@@ -48,7 +48,7 @@ class Application:
         self.order_page = OrderPage(self)
         self.registration = RegistrationPage(self)
         self.filtering_women = FilteringWomenPage(self)
-        self.proceed_to_checkout = ProceedToCheckoutPage(self)
+        self.shopping_cart = ShoppingCartPage(self)
 
     def open_main_page(self):
         logger.info("Open main page")

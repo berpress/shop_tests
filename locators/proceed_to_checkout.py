@@ -6,15 +6,14 @@ class ProceedToCheckoutLocators:
         By.XPATH,
         '//a[@class="button btn btn-default standard-checkout button-medium"]',
     )
-    ADDRESS_SELECT = (By.ID, "id_address_delivery")
-    DELIVERY_ADDRESS_INFO = (By.CLASS_NAME, "address item box")
-    BILLING_ADDRESS_INFO = (By.CLASS_NAME, "address alternate_item box")
-    ADDRESS_PROCEED_TO_CHECKOUT = (
+    ADDRESS_SELECT = (By.XPATH, '//select[@id="id_address_delivery"]')
+    DELIVERY_ADDRESS_INFO = (By.XPATH, '//ul[@id="address_delivery"]')
+    ADDRESS = (
         By.XPATH,
         '//button[@class="button btn btn-default button-medium"]',
     )
     CHECKBOX_SHIPPING = (By.XPATH, '//input[@type="checkbox"]')
-    SHIPPING_PROCEED_TO_CHECKOUT = (
+    SHIPPING = (
         By.XPATH,
         '//button[@class="button btn btn-default standard-checkout ' 'button-medium"]',
     )
