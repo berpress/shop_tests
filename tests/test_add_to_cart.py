@@ -1,4 +1,4 @@
-from common.constants import Users, Cart
+from common.constants import Cart
 import allure
 
 

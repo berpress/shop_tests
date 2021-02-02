@@ -2,7 +2,6 @@ from common.my_addresses_values import MyAddressesValues
 import allure
 
 
-
 class TestMyAddresses:
     @allure.story("Проверяем данные на соответствие")
     @allure.severity("minor")

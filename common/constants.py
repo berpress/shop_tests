@@ -1,6 +1,6 @@
 class Users:
     ACCOUNT_DATA = "Ivan Ivanov"
-    EMAIL = "test74@test.com"
+    EMAIL = "admin2@admin.ru"
     PASSWORD = "Password11"
     INVALID_EMAIL = "test44@test.com"
     INVALID_PASSWORD = "Password22"
@@ -25,3 +25,10 @@ class SearchStrings:
     TWO_WORDS = "Printed Summer"
     ONE_WORD_NEGATIVE = "siurhfsuew"
     TWO_WORDS_NEGATIVE = "siurh fsuew"
+
+class MyCreditSlips:
+    MY_CREDIT_SLIPS = "CREDIT SLIPS"
+
+
+class MyOrdersPage:
+    ORDER_HISTORY = "ORDER HISTORY"
