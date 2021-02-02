@@ -1,3 +1,4 @@
+
 # Автотесты для интернет магазина-женской одежды
 
 В рамках этого проекта автоматизированы основные сценарии пользователей [магазина](http://automationpractice.com) : регистрация, авторизация, поиск товаров, оформление заказа и т.д.
@@ -34,13 +35,16 @@
 ## Установка
 
 **Scoop**
+В powershell выполнить две команды для установки scoop:
 
     Set-ExecutionPolicy RemoteSigned -scope CurrentUser
+  
     Invoke-Expression (New-Object System.Net.WebClient).DownloadString('[https://get.scoop.sh]')
-
+    
 **Allure**
-
-    scoop install allure
+C помощью scoop установить Allure:
+ 
+       scoop install allure
 
 >Необходимо проверить, установлена ли Java. Для этого ввести allure и нажать enter. Если не установлена, то необходимо установить и добавить в переменные окружения.
 
@@ -51,3 +55,5 @@
 ## Просмотр отчёта
 
     allure serve <dir_name>
+
+
