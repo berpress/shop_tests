@@ -11,6 +11,14 @@ from pages.my_addresses import MyAddressesPage
 from pages.my_credit_slips import MyCreditSlipsPage
 from pages.my_orders import MyOrdersPage
 from pages.my_personal_info import MyPersonalInfoPage
+from pages.main_page import SearchGoods
+
+
+from pages.women_category_page import WomenCategoryPage
+from pages.order_page import OrderPage
+from pages.registration import RegistrationPage
+from pages.filtering_women import FilteringWomenPage
+
 from pages.order_page import OrderPage
 from pages.registration import RegistrationPage
 from pages.filtering_women import FilteringWomenPage
@@ -42,6 +50,7 @@ class Application:
         self.order_page = OrderPage(self)
         self.registration = RegistrationPage(self)
         self.filtering_women = FilteringWomenPage(self)
+        self.search = SearchGoods(self)
 
     def open_main_page(self):
         logger.info("Open main page")
