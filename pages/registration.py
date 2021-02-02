@@ -5,6 +5,9 @@ class RegistrationPage:
     def __init__(self, app):
         self.app = app
 
+    def wrong_email_alert(self):
+        return self.app.driver.find_element(*RegistrationLocators.WRONG_EMAIL_ALERT).text
+
     def sign_in_header_button(self):
         return self.app.driver.find_element(*RegistrationLocators.SIGN_IN_BUTTON)
 
@@ -91,6 +94,9 @@ class RegistrationPage:
 
     def register_button(self):
         return self.app.driver.find_element(*RegistrationLocators.REGISTER_BUTTON)
+
+    def errors(self):
+        return self.app.driver.find_element(*RegistrationLocators.ERRORS).text
 
     def account_header(self):
         return self.app.driver.find_element(*RegistrationLocators.ACCOUNT_HEADER).text
