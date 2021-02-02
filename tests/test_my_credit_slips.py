@@ -1,6 +1,8 @@
 import allure
+from common.constants import MyCreditSlips
 
-class TestMyOrders:
+
+class TestMyCreditSlips:
     @allure.story("Открываем страницу и кликаем на My Credit Slips")
     @allure.severity("minor")
     def test_my_orders(self, app, login):
@@ -9,4 +11,5 @@ class TestMyOrders:
         2. Кликнуть на кнопку My Credit Slips
         """
         app.my_credit_slips.check()
+        assert app.my_credit_slips.my_c_s_field_text() == MyCreditSlips.MY_CREDIT_SLIPS
         app.login.logout_button_click()
