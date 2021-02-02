@@ -20,11 +20,12 @@ logger = logging.getLogger()
 
 
 class Application:
-    def __init__(self, url):
+    def __init__(self, headless, url):
         setup("INFO")
         logger.setLevel("INFO")
         options: Options = Options()
-        options.headless = True
+        if headless:
+            options.add_argument("--headless")
         self.url = url
         try:
             self.driver = webdriver.Chrome(
