@@ -35,6 +35,7 @@
 ## Установка
 
 **Scoop**
+
 В powershell выполнить две команды для установки scoop:
 
     Set-ExecutionPolicy RemoteSigned -scope CurrentUser
@@ -42,6 +43,7 @@
     Invoke-Expression (New-Object System.Net.WebClient).DownloadString('[https://get.scoop.sh]')
     
 **Allure**
+
 C помощью scoop установить Allure:
  
        scoop install allure
