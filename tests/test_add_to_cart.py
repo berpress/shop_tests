@@ -3,8 +3,8 @@ import allure
 
 
 class TestAddToCart:
-    @allure.story("Добавление товара в корзину")
-    @allure.severity("blocker")
+    @allure.story("Корзина")
+    @allure.severity("critical")
     def test_add_to_cart(self, app):
         """
         1. Выбрать раздел Women

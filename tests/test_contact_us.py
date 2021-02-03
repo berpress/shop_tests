@@ -2,7 +2,7 @@ import allure
 
 
 class TestContactUs:
-    @allure.story("Открываем страницу по ссылке из хедера")
+    @allure.story("Главная страница-информация")
     @allure.severity("minor")
     def test_contact_header(self, app):
         """

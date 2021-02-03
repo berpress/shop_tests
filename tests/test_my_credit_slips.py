@@ -3,7 +3,7 @@ from common.constants import MyCreditSlips
 
 
 class TestMyCreditSlips:
-    @allure.story("Открываем страницу и кликаем на My Credit Slips")
+    @allure.story("Главная страница-мой аккаунт")
     @allure.severity("minor")
     def test_my_orders(self, app, login):
         """
