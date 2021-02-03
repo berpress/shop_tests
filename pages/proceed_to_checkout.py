@@ -1,0 +1,119 @@
+import logging
+
+from selenium.webdriver.support.select import Select
+
+from common.logger import setup
+from locators.proceed_to_checkout import ProceedToCheckoutLocators
+
+logger = logging.getLogger()
+
+
+class ShoppingCartPage:
+    def __init__(self, app):
+        setup("INFO")
+        logger.setLevel("INFO")
+        self.app = app
+
+    def summary_proceed_to_checkout_button(self):
+        return self.app.driver.find_element(
+            *ProceedToCheckoutLocators.SUMMARY_PROCEED_TO_CHECKOUT
+        )
+
+    def summary_proceed_to_checkout_button_click(self):
+        self.summary_proceed_to_checkout_button().click()
+
+    def address_pop_up_button(self):
+        return self.app.driver.find_element(*ProceedToCheckoutLocators.ADDRESS_SELECT)
+
+    def address_pop_up_button_click(self):
+        select = Select(self.address_pop_up_button())
+        select.select_by_visible_text("My address")
+
+    def delivery_address(self):
+        return self.app.driver.find_elements(
+            *ProceedToCheckoutLocators.DELIVERY_ADDRESS_INFO
+        )
+
+    def delivery_address_info(self):
+        """Проверяется что выбранный адрес из
+        второго теста соотвествует нужному адресу."""
+        logger.info("Проверка информации о адресе во вкладке Address")
+        return [i.text for i in self.delivery_address()]
+
+    def address_proceed_to_checkout_button(self):
+        return self.app.driver.find_element(*ProceedToCheckoutLocators.ADDRESS)
+
+    def address_proceed_to_checkout_button_click(self):
+        self.address_proceed_to_checkout_button().click()
+
+    def shipping_checkbox(self):
+        return self.app.driver.find_element(
+            *ProceedToCheckoutLocators.CHECKBOX_SHIPPING
+        )
+
+    def shipping_checkbox_click(self):
+        self.shipping_checkbox().click()
+
+    def shipping_proceed_to_checkout_button(self):
+        return self.app.driver.find_element(*ProceedToCheckoutLocators.SHIPPING)
+
+    def shipping_proceed_to_checkout_button_click(self):
+        self.shipping_proceed_to_checkout_button().click()
+
+    def payment_info(self):
+        return self.app.driver.find_elements(*ProceedToCheckoutLocators.PAYMENT_INFO)
+
+    def check_payment_info(self):
+        """Проверяется что выбранный товар в корзине."""
+        logger.info("Проверка информации о выбранном товаре во вкладке Payment")
+        return [i.text for i in self.payment_info()]
+
+    def pay_by_bank_wire_button(self):
+        return self.app.driver.find_element(*ProceedToCheckoutLocators.PAY_BY_BANK_WIRE)
+
+    def pay_by_bank_wire_button_click(self):
+        self.pay_by_bank_wire_button().click()
+
+    def confirm_my_order_button(self):
+        return self.app.driver.find_element(*ProceedToCheckoutLocators.CONFIRM_MY_ORDER)
+
+    def confirm_my_order_button_click(self):
+        self.confirm_my_order_button().click()
+
+    def my_store_complete_info(self):
+        return self.app.driver.find_elements(
+            *ProceedToCheckoutLocators.MY_STORE_COMPLETE
+        )
+
+    def check_my_store_complete_info(self):
+        """Проверяется переход на страницу купленного товара."""
+        logger.info("Проверка информации купленного товара")
+        data_info = [i.text for i in self.my_store_complete_info()]
+        data_info_st = str(data_info[0])
+        return data_info_st[0:215]
+
+    def buying_one_step(self):
+        self.summary_proceed_to_checkout_button_click()
+        self.address_proceed_to_checkout_button_click()
+        self.shipping_checkbox_click()
+        self.shipping_proceed_to_checkout_button_click()
+
+    def buying_two_step(self):
+        self.pay_by_bank_wire_button_click()
+        self.confirm_my_order_button_click()
+
+    def buying_with_new_address_one_step(self):
+        """Функция для теста, где выбирается второй адресс."""
+        self.summary_proceed_to_checkout_button_click()
+        self.address_pop_up_button_click()
+
+    def buying_with_new_address_two_step(self):
+        """Функция для теста, где выбирается второй адресс."""
+        self.address_proceed_to_checkout_button_click()
+        self.shipping_checkbox_click()
+        self.shipping_proceed_to_checkout_button_click()
+
+    def buying_with_new_address_three_step(self):
+        """Функция для теста, где выбирается второй адресс."""
+        self.pay_by_bank_wire_button_click()
+        self.confirm_my_order_button_click()

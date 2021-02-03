@@ -18,11 +18,14 @@ from pages.women_category_page import WomenCategoryPage
 from pages.order_page import OrderPage
 from pages.registration import RegistrationPage
 from pages.filtering_women import FilteringWomenPage
+from pages.proceed_to_checkout import ShoppingCartPage
+
 
 from pages.order_page import OrderPage
 from pages.registration import RegistrationPage
 from pages.filtering_women import FilteringWomenPage
 from pages.women_category_page import WomenCategoryPage
+
 
 logger = logging.getLogger()
 
@@ -51,6 +54,7 @@ class Application:
         self.order_page = OrderPage(self)
         self.registration = RegistrationPage(self)
         self.filtering_women = FilteringWomenPage(self)
+        self.shopping_cart = ShoppingCartPage(self)
         self.search = SearchGoods(self)
 
     def open_main_page(self):
