@@ -1,4 +1,9 @@
+import allure
+
+
 class TestMyPersonalInfo:
+    @allure.story("Главная страница-мой аккаунт")
+    @allure.severity("minor")
     def test_my_personal_info(self, app, login):
         """
         1. Открыть страницу

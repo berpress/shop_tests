@@ -1,5 +1,3 @@
-from typing import Any
-
 from locators.main_page import MainLocators
 from locators.my_addresses import MyAddressesLocators
 
@@ -14,7 +12,7 @@ class MyAddressesPage:
     def open_my_addresses(self):
         self.my_addresses_button().click()
 
-    def get_first_and_second_name(self) -> Any:
+    def get_first_and_second_name(self):
         person_data = self.app.driver.find_elements(
             *MyAddressesLocators.FIRST_AND_SECOND_NAME
         )
