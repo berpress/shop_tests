@@ -40,7 +40,7 @@ class TestRegistration:
     @pytest.mark.parametrize(
         "email, expected_result",
         [
-            pytest.param(Users.INVALID_EMAIL, reg.EMAIL_ERROR, id='1."Invalid email address"'),
+            pytest.param(Users.INVALID_EMAIL_2, reg.EMAIL_ERROR, id='1."Invalid email address"'),
             pytest.param(Users.EMPTY_EMAIL, reg.EMAIL_ERROR, id='2."Empty email address'),
             pytest.param(Users.EMAIL, reg.EMAIL_EXISTS, id='3."Existing email"'),
         ],

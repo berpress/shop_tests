@@ -1,12 +1,16 @@
 from locators.registration import RegistrationLocators
+from time import time
 
 
 class RegistrationPage:
     def __init__(self, app):
         self.app = app
 
-    def wrong_email_alert(self):
-        return self.app.driver.find_element(*RegistrationLocators.WRONG_EMAIL_ALERT).text
+    def wrong_email_alert(self, wait_time=5):
+        timestamp = time() + wait_time
+        while time() < timestamp:
+            element = self.app.driver.find_element(*RegistrationLocators.WRONG_EMAIL_ALERT).text
+        return element
 
     def sign_in_header_button(self):
         return self.app.driver.find_element(*RegistrationLocators.SIGN_IN_BUTTON)
