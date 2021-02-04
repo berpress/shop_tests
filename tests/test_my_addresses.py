@@ -3,7 +3,7 @@ import allure
 
 
 class TestMyAddresses:
-    @allure.story("Проверяем данные на соответствие")
+    @allure.story("Главная страница-мой аккаунт")
     @allure.severity("minor")
     def test_my_addresses(self, app, login):
         """

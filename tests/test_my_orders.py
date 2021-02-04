@@ -4,7 +4,7 @@ from common.constants import MyOrdersPage
 
 
 class TestMyOrders:
-    @allure.story("Открываем страницу и кликаем на My Orders")
+    @allure.story("Главная страница-мой аккаунт")
     @allure.severity("minor")
     def test_my_orders(self, app, login):
         """
