@@ -4,7 +4,7 @@ import allure
 
 
 class TestAuth:
-    @allure.story("Открываем страницу и вводим валидные данные")
+    @allure.story("Авторизация")
     @allure.severity("blocker")
     def test_auth_shop(self, app):
         """
@@ -20,7 +20,7 @@ class TestAuth:
         assert app.login.get_userdata() == Users.ACCOUNT_DATA
         app.login.logout_button_click()
 
-    @allure.story("Открываем страницу и вводим невалидные данные")
+    @allure.story("Авторизация")
     @allure.severity("blocker")
     @pytest.mark.parametrize(
         "email, password, alert",

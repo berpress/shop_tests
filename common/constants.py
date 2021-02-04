@@ -16,8 +16,7 @@ class Alerts:
 
 class Cart:
     YOUR_SHOPPING_CART = "Your shopping cart"
-
-
+    
 class SearchStrings:
     """Строки для параметризации теста поиска по каталогу"""
 
@@ -30,10 +29,8 @@ class SearchStrings:
 class MyCreditSlips:
     MY_CREDIT_SLIPS = "CREDIT SLIPS"
 
-
 class MyOrdersPage:
     ORDER_HISTORY = "ORDER HISTORY"
-
 
 class Registration:
     EMAIL_ERROR = "Invalid email address"

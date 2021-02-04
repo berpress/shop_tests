@@ -3,7 +3,7 @@ import pytest
 
 
 class TestMyOrders:
-    @allure.story("Кликаем рандомно на кнопки из фильтра")
+    @allure.story("Фильтр")
     @allure.severity("minor")
     @pytest.mark.xfail
     def test_filtering_women(self, app):

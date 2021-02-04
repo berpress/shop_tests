@@ -9,7 +9,8 @@ from pages.application import Application
 @pytest.fixture(scope="session")
 def app(request):
     url = request.config.getoption("--base-url")
-    app = Application(url)
+    headless = request.config.getoption("--headless")
+    app = Application(headless, url)
     yield app
     app.browser_close()
 
@@ -67,6 +68,6 @@ def pytest_addoption(parser):
     parser.addoption(
         "--headless",
         action="store",
-        default=True,
+        default=False,
         help="launching browser without gui",
     ),
