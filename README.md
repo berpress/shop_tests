@@ -85,5 +85,5 @@ C помощью scoop установить Allure:
 `pytest --html=report.html --self-contained-html
 `
 
- [Подробнее](https://pytest-html.readthedocs.io/en/latest/user_guide.html#creating-a-self-contained-report) о редактировании внешнего вида отчёта можно почитать подробнее
+ [Подробнее](https://pytest-html.readthedocs.io/en/latest/user_guide.html#creating-a-self-contained-report) о редактировании внешнего вида отчёта
 
