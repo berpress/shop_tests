@@ -1,14 +1,10 @@
-from models.fake_data import UserData, Address, Date
-from common.constants import Users, Registration as reg
+from common.constants import Users, Registration as reg, RandomData as rand
 import allure
 import pytest
 
-user = UserData.random()
-email = user.login
-date = Date.random()
-addr = Address.random()
 
 class TestRegistration:
+
     @allure.story("Регистрация")
     @allure.severity("critical")
     def test_registration(self, app):
@@ -22,69 +18,78 @@ class TestRegistration:
         6. Нажать кнопку Register
         """
         app.open_main_page()
-        app.registration.go_to_registration_form(email)
+        app.registration.go_to_registration_form(rand.email)
         app.registration.fill_personal_information(
-            user.password, user.first_name, user.last_name, date.year
-        )
+                rand.user.password, rand.user.first_name, rand.user.last_name, rand.date.year
+            )
         app.registration.fill_address(
-            user.first_name,
-            user.last_name,
-            addr.address,
-            addr.city,
-            addr.country,
-            addr.phone,
-        )
-        assert app.registration.account_header() == "MY ACCOUNT"
+                rand.user.first_name,
+                rand.user.last_name,
+                rand.addr.address,
+                rand.addr.city,
+                rand.addr.country,
+                rand.addr.phone,
+            )
 
+        assert app.registration.account_header() == "MY ACCOUNT"
+        app.login.logout_button_click()
 
     @pytest.mark.parametrize(
         "email, expected_result",
         [
-            pytest.param(Users.INVALID_EMAIL_2, reg.EMAIL_ERROR, id='1."Invalid email address"'),
-            pytest.param(Users.EMPTY_EMAIL, reg.EMAIL_ERROR, id='2."Empty email address'),
-            pytest.param(Users.EMAIL, reg.EMAIL_EXISTS, id='3."Existing email"'),
+            pytest.param(Users.INVALID_EMAIL_2, reg.EMAIL_ERROR, id='Invalid email address'),
+            pytest.param(Users.EMPTY_EMAIL, reg.EMAIL_ERROR, id='Empty email address'),
+            pytest.param(Users.EMAIL, reg.EMAIL_EXISTS, id='Existing email'),
         ],
     )
     @allure.story("Регистрация")
-    @allure.severity("critical")
+    @allure.severity("minor")
     def test_registration_wrong_email(self, app, email, expected_result):
         """
        Негативные тесты для первого шага регистрации,
        где требуется только ввод email
+       1. Открыть главную страницу
+       2. Нажать на кнопку Sign In в правом верхнем углу
+       3. Ввести некорректный e-mail
+       4. Ожидается возникновение ошибок
         """
         app.open_main_page()
         app.registration.go_to_registration_form(email)
-        alert = app.registration.wrong_email_alert()
 
-        assert expected_result in alert
+        assert expected_result in app.registration.wrong_email_alert(expected_result), "Текст ошибки не соответствует ожидаемому"
 
     @pytest.mark.parametrize(
         "firstname, lastname, address1, city, expected_result",
         [
-            pytest.param(user.first_name, '',  addr.address, addr.city, reg.LASTNAME_REQUIRED, id='1."Empty lastname"'),
-            pytest.param('', user.last_name,  addr.address, addr.city, reg.FIRSTNAME_REQUIRED, id='2."Empty firstname'),
-            pytest.param(user.first_name, user.last_name, '', addr.city, reg.ADDRESS_REQUIRED, id='3."Empty address"'),
-            pytest.param(user.first_name, user.last_name,  addr.address, '', reg.CITY_REQUIRED, id='3."Empty city"')
+            pytest.param(rand.user.first_name, '',  rand.addr.address, rand.addr.city, reg.LASTNAME_REQUIRED, id='Empty lastname'),
+            pytest.param('', rand.user.last_name,  rand.addr.address, rand.addr.city, reg.FIRSTNAME_REQUIRED, id='Empty firstname'),
+            pytest.param(rand.user.first_name, rand.user.last_name, '', rand.addr.city, reg.ADDRESS_REQUIRED, id='Empty address'),
+            pytest.param(rand.user.first_name, rand.user.last_name,  rand.addr.address, '', reg.CITY_REQUIRED, id='Empty city')
         ],
     )
     @allure.story("Регистрация")
-    @allure.severity("critical")
-    def test_registration(self, app, firstname, lastname, address1, city, expected_result):
+    @allure.severity("minor")
+    def test_registration_empty_fields(self, app, firstname, lastname, address1, city, expected_result):
         """
         Негативный тест на возникновение ошибки при незаполненных обязательных полях.
+        1. Открыть главную страницу
+        2. Перейти на форму регистрации
+        3. Заполнить секцию личной информации, игнорируя обязательные поля
+        4. Заполнить секцию адреса, игнорируя обязательные поля
+        5. Ожидается возникновение ошибки
         """
         app.open_main_page()
-        app.registration.go_to_registration_form(email)
+        app.registration.go_to_registration_form(rand.addr.email)
         app.registration.fill_personal_information(
-            user.password, firstname, lastname, date.year
+            rand.user.password, firstname, lastname, rand.date.year
         )
         app.registration.fill_address(
-            user.first_name,
-            user.last_name,
+            rand.user.first_name,
+            rand.user.last_name,
             address1,
             city,
-            addr.country,
-            addr.phone,
+            rand.addr.country,
+            rand.addr.phone,
         )
         error_text = app.registration.errors()
-        assert expected_result in error_text
+        assert expected_result in error_text, "Тест упал. Текст ошибки не совпадает с ожидаемым"

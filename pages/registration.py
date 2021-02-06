@@ -1,16 +1,22 @@
 from locators.registration import RegistrationLocators
-from time import time
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class RegistrationPage:
     def __init__(self, app):
         self.app = app
 
-    def wrong_email_alert(self, wait_time=5):
-        timestamp = time() + wait_time
-        while time() < timestamp:
-            element = self.app.driver.find_element(*RegistrationLocators.WRONG_EMAIL_ALERT).text
-        return element
+
+    def wrong_email_alert(self, message):
+        """Ожидание появления в алерте нужного текста."""
+        wait = WebDriverWait(self.app.driver, 10)
+        is_text = wait.until(EC.text_to_be_present_in_element((RegistrationLocators.WRONG_EMAIL_ALERT), message))
+        if is_text:
+            return message
+        else:
+            False
+
 
     def sign_in_header_button(self):
         return self.app.driver.find_element(*RegistrationLocators.SIGN_IN_BUTTON)
@@ -112,7 +118,8 @@ class RegistrationPage:
 
     def fill_personal_information(self, passwd, firstname, lastname, years):
         """Заполнение секции Your personal information"""
-        self.app.driver.implicitly_wait(10)
+        wait = WebDriverWait(self.app.driver, 10)
+        wait.until(EC.element_to_be_clickable((RegistrationLocators.MRS_RADIOBUTTON)))
         self.mrs_radiobutton().click()
         self.firstname().send_keys(firstname)
         self.lastname().send_keys(lastname)
