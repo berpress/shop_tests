@@ -11,13 +11,8 @@ class MyOrdersPage:
     def my_orders_button_click(self):
         self.my_orders_button().click()
 
-    def check(self):
-        """Функция которая кликает по кнопке 'my_orders info',
-        добавлена для читабельности теста."""
-        self.my_orders_button_click()
-
-    def my_o_field(self):
+    def header(self):
         return self.app.driver.find_element(*MyOrdersLocators.ORDER_HISTORY)
 
-    def my_o_field_text(self):
-        return self.my_o_field().text
+    def header_text(self):
+        return self.header().text
