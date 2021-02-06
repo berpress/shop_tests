@@ -1,8 +1,11 @@
+import pytest
+
 from models.fake_data import UserData, Address, Date
 import allure
 
 
 class TestRegistration:
+    @pytest.mark.mr
     @allure.story("Открываем страницу и регистрируемся")
     @allure.severity("critical")
     def test_registration(self, app):

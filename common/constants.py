@@ -15,7 +15,8 @@ class Alerts:
 
 class Cart:
     YOUR_SHOPPING_CART = "Your shopping cart"
-    
+
+
 class SearchStrings:
     """Строки для параметризации теста поиска по каталогу"""
 
@@ -25,9 +26,22 @@ class SearchStrings:
     ONE_WORD_NEGATIVE = "siurhfsuew"
     TWO_WORDS_NEGATIVE = "siurh fsuew"
 
+
 class MyCreditSlips:
     MY_CREDIT_SLIPS = "CREDIT SLIPS"
+
 
 class MyOrdersPage:
     ORDER_HISTORY = "ORDER HISTORY"
 
+
+class Registration:
+    DATE = "13"
+    MONTH = "January"
+    COMPANY = "blah"
+    ADDRESS2 = "blah"
+    STATE = "Iowa"
+    POSTAL_CODE = "45212"
+    ADDITIONAL_INFO = "blah"
+    ADDRESS_ALIAS = "blah"
+    FIRST_NAME = None

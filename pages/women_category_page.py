@@ -15,11 +15,11 @@ class WomenCategoryPage:
         self.women_category_button().click()
 
     def women_category(self):
-        self.app.driver.implicitly_wait(10)
+        self.app.implicitly_wait()
         self.women_category_button_click()
 
     def find_good_cart(self):
-        self.app.driver.implicitly_wait(10)
+        self.app.implicitly_wait()
         return self.app.driver.find_element(*WomenCategoryLocators.GOOD_CART)
 
     def move_to_good(self):
@@ -36,15 +36,15 @@ class WomenCategoryPage:
         ).click().perform()
 
     def add_to_cart_button(self):
-        self.app.driver.implicitly_wait(10)
+        self.app.implicitly_wait()
         return self.app.driver.find_element(*WomenCategoryLocators.ADD_TO_CART)
 
     def proceed_to_checkout_button(self):
+        self.app.implicitly_wait()
         return self.app.driver.find_element(*WomenCategoryLocators.PROCEED_TO_CHECKOUT)
 
     def proceed_to_checkout_button_click(self):
         self.proceed_to_checkout_button().click()
 
     def proceed_to_checkout(self):
-        self.app.driver.implicitly_wait(10)
         self.proceed_to_checkout_button_click()

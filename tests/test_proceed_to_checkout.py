@@ -1,3 +1,4 @@
+import pytest
 from common.shop_value import ShopValues
 
 
@@ -21,7 +22,9 @@ class TestProceedToCHeckout:
             app.shopping_cart.check_my_store_complete_info()[0]
             == ShopValues.COMPLETE_INFO[0]
         )
+        app.login.logout_button_click()
 
+    @pytest.mark.skip
     def test_proceed_to_checkout_with_new_address(self, app, login):
         """
         1. Открыть страницу
@@ -44,3 +47,4 @@ class TestProceedToCHeckout:
             app.shopping_cart.check_my_store_complete_info()[0]
             == ShopValues.COMPLETE_INFO[0]
         )
+        app.login.logout_button_click()
