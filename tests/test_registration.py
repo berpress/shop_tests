@@ -1,11 +1,9 @@
-import pytest
-
+from common.constants import MyAccount
 from models.fake_data import UserData, Address, Date
 import allure
 
 
 class TestRegistration:
-    @pytest.mark.mr
     @allure.story("Открываем страницу и регистрируемся")
     @allure.severity("critical")
     def test_registration(self, app):
@@ -34,4 +32,4 @@ class TestRegistration:
             addr.country,
             addr.phone,
         )
-        assert app.registration.account_header() == "MY ACCOUNT"
+        assert app.registration.account_header() == MyAccount.MY_ACCOUNT
