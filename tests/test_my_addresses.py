@@ -1,7 +1,10 @@
 from common.my_addresses_values import MyAddressesValues
+import allure
 
 
 class TestMyAddresses:
+    @allure.story("Главная страница-мой аккаунт")
+    @allure.severity("minor")
     def test_my_addresses(self, app, login):
         """
         1. Авторизоваться

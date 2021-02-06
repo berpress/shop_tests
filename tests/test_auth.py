@@ -1,8 +1,11 @@
 from common.constants import Users, Alerts
 import pytest
+import allure
 
 
 class TestAuth:
+    @allure.story("Авторизация")
+    @allure.severity("blocker")
     def test_auth_shop(self, app):
         """
         1. Открыть страницу
@@ -17,6 +20,8 @@ class TestAuth:
         assert app.login.get_userdata() == Users.ACCOUNT_DATA
         app.login.logout_button_click()
 
+    @allure.story("Авторизация")
+    @allure.severity("blocker")
     @pytest.mark.parametrize(
         "email, password, alert",
         (
@@ -33,3 +38,4 @@ class TestAuth:
         app.open_main_page()
         app.login.auth(email=email, password=password)
         assert app.login.login_auth_alert_get_text() == alert
+        app.login.allure_attach()

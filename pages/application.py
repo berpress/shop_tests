@@ -6,25 +6,37 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 from common.logger import setup
 from pages.contact_us import ContactUsPage
-from pages.filtering_women import FilteringWomenPage
 from pages.login import LoginPage
 from pages.my_addresses import MyAddressesPage
 from pages.my_credit_slips import MyCreditSlipsPage
 from pages.my_orders import MyOrdersPage
 from pages.my_personal_info import MyPersonalInfoPage
+from pages.main_page import SearchGoods
+
+
+from pages.women_category_page import WomenCategoryPage
 from pages.order_page import OrderPage
 from pages.registration import RegistrationPage
+from pages.filtering_women import FilteringWomenPage
+from pages.proceed_to_checkout import ShoppingCartPage
+
+
+from pages.order_page import OrderPage
+from pages.registration import RegistrationPage
+from pages.filtering_women import FilteringWomenPage
 from pages.women_category_page import WomenCategoryPage
+
 
 logger = logging.getLogger()
 
 
 class Application:
-    def __init__(self, url):
+    def __init__(self, headless, url):
         setup("INFO")
         logger.setLevel("INFO")
         options: Options = Options()
-        options.headless = True
+        if headless:
+            options.add_argument("--headless")
         self.url = url
         try:
             self.driver = webdriver.Chrome(
@@ -42,6 +54,8 @@ class Application:
         self.order_page = OrderPage(self)
         self.registration = RegistrationPage(self)
         self.filtering_women = FilteringWomenPage(self)
+        self.shopping_cart = ShoppingCartPage(self)
+        self.search = SearchGoods(self)
 
     def open_main_page(self):
         logger.info("Open main page")

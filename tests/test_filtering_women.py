@@ -1,5 +1,12 @@
+import allure
+import pytest
+
+
 class TestMyOrders:
-    def test_filtering_women(self, app, login):
+    @allure.story("Фильтр")
+    @allure.severity("minor")
+    @pytest.mark.xfail
+    def test_filtering_women(self, app):
         """
         1. Открыть страницу
         2. Кликнуть на кнопку Women

@@ -1,5 +1,4 @@
 from locators.registration import RegistrationLocators
-from time import sleep
 
 
 class RegistrationPage:
@@ -103,7 +102,7 @@ class RegistrationPage:
 
     def fill_personal_information(self, passwd, firstname, lastname, years):
         """Заполнение секции Your personal information"""
-        sleep(5)
+        self.app.driver.implicitly_wait(10)
         self.mrs_radiobutton().click()
         self.firstname().send_keys(firstname)
         self.lastname().send_keys(lastname)

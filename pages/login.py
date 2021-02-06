@@ -1,5 +1,6 @@
 import time
-
+import allure
+from allure_commons.types import AttachmentType
 from locators.login import LoginLocators
 
 
@@ -26,6 +27,7 @@ class LoginPage:
         return self.app.driver.find_element(*LoginLocators.SUBMIT_BUTTON)
 
     def auth(self, email: str, password: str):
+        self.app.driver.implicitly_wait(10)
         self.sign_button_click()
         if email is not None:
             self._email_input().send_keys(email)
@@ -53,3 +55,11 @@ class LoginPage:
 
     def login_auth_alert_get_text(self):
         return self.login_auth_alert().text
+
+    def allure_attach(self):
+        with allure.step("Делаем скриншот"):
+            allure.attach(
+                self.app.driver.get_screenshot_as_png(),
+                name="Screenshot",
+                attachment_type=AttachmentType.PNG,
+            )
