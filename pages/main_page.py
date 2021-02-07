@@ -1,4 +1,8 @@
+import logging
+
 from locators.main_page import SearchLocators
+
+logger = logging.getLogger()
 
 
 class SearchGoods:
@@ -23,8 +27,13 @@ class SearchGoods:
 
     def check_found_item(self, str):
         """Проверка заголовков найденных элементов на вхождение строки"""
+        logger.info(
+            f"Пытаемся найти результаты поиска,"
+            f" поиск происходил с помощью значения {str}"
+        )
         list = self.found_items()
         for i in list:
             if i.text.lower().find(str.lower()) != -1:
                 return True
+        logger.error("Результаты поиска не найдены")
         return False
