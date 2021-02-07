@@ -110,7 +110,7 @@ class RegistrationPage(BaseClass):
         """Заполнение секции Your personal information"""
         logger.info(
             f"Пытаемся заполнить личные данные значениями"
-            f" {passwd}{firstname}{lastname}{years}"
+            f" {passwd}, {firstname}, {lastname}, {years}"
         )
         self.mrs_radiobutton().click()
         self.input_value(self.firstname(), firstname)
@@ -126,7 +126,7 @@ class RegistrationPage(BaseClass):
         """Заполнение секции Your address"""
         logger.info(
             f"Пытаемся заполнить личные данные значениями "
-            f"{first_name}{last_name}{address}{city}{country}{phone}"
+            f"{first_name}, {last_name}, {address}, {city}, {country}, {phone}"
         )
         self.input_value(self.first_name(), first_name)
         self.input_value(self.last_name(), last_name)
