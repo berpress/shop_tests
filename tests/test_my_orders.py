@@ -11,6 +11,6 @@ class TestMyOrders:
         1. Открыть страницу
         2. Кликнуть на кнопку My Orders
         """
-        app.my_orders.check()
-        assert app.my_orders.my_o_field_text() == MyOrdersPage.ORDER_HISTORY
+        app.my_orders.my_orders_button_click()
+        assert app.my_orders.header_text() == MyOrdersPage.ORDER_HISTORY
         app.login.logout_button_click()
