@@ -13,6 +13,7 @@ class TestAddToCart:
         4. Перейти к оформлению заказа
         """
         app.open_main_page()
+        app.login.logout_button_click()
         app.women_category_page.women_category()
         app.women_category_page.move_to_good()
         app.women_category_page.proceed_to_checkout()

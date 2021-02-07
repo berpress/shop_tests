@@ -1,5 +1,6 @@
 from selenium.webdriver import ActionChains
 from locators.women_category_page import WomenCategoryLocators
+from time import sleep
 
 
 class WomenCategoryPage:
@@ -37,10 +38,8 @@ class WomenCategoryPage:
         return self.app.driver.find_element(*WomenCategoryLocators.ADD_TO_CART)
 
     def proceed_to_checkout_button(self):
+        sleep(3)
         return self.app.driver.find_element(*WomenCategoryLocators.PROCEED_TO_CHECKOUT)
 
-    def proceed_to_checkout_button_click(self):
-        self.proceed_to_checkout_button().click()
-
     def proceed_to_checkout(self):
-        self.proceed_to_checkout_button_click()
+        self.proceed_to_checkout_button().click()

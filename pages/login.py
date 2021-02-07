@@ -50,7 +50,9 @@ class LoginPage:
         return 0
 
     def logout_button_click(self):
-        self.logout_button().click()
+        """Если кнопка выхода найдена, нажимаем её и выходим из аккаунта"""
+        if self.logout_button() != 0:
+            self.logout_button().click()
 
     def get_userdata(self):
         return self.app.driver.find_element(*LoginLocators.LOGIN_BUTTON).text

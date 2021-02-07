@@ -13,5 +13,5 @@ class TestMyCreditSlips:
         4. Нажать на кнопку выхода в правом вернем углу
         5. Происходит разлогин
         """
-        app.credit_slips_button_click()
+        app.my_credit_slips.credit_slips_button_click()
         assert app.my_credit_slips.my_c_s_field_text() == MyCreditSlips.MY_CREDIT_SLIPS

@@ -23,7 +23,6 @@ class TestProceedToCHeckout:
             app.shopping_cart.check_my_store_complete_info()[0]
             == ShopValues.COMPLETE_INFO[0]
         )
-        app.login.logout_button_click()
 
 
     @pytest.mark.skip(
@@ -51,4 +50,3 @@ class TestProceedToCHeckout:
             app.shopping_cart.check_my_store_complete_info()[0]
             == ShopValues.COMPLETE_INFO[0]
         )
-        app.login.logout_button_click()
