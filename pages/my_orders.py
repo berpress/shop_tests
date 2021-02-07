@@ -1,5 +1,8 @@
+import logging
+
 from locators.my_orders import MyOrdersLocators
-from pages.application import logger
+
+logger = logging.getLogger()
 
 
 class MyOrdersPage:
