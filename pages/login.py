@@ -1,7 +1,9 @@
+import logging
 import time
-import allure
-from allure_commons.types import AttachmentType
+
 from locators.login import LoginLocators
+
+logger = logging.getLogger()
 
 
 class LoginPage:
@@ -27,6 +29,7 @@ class LoginPage:
         return self.app.driver.find_element(*LoginLocators.SUBMIT_BUTTON)
 
     def auth(self, email: str, password: str):
+        logger.info("Пытаемся залогиниться")
         self.app.driver.implicitly_wait(10)
         self.sign_button_click()
         if email is not None:
@@ -36,6 +39,7 @@ class LoginPage:
         self._submit_button().click()
 
     def logout_button(self, wait_time=5):
+        logger.info("Пытаемся разлогиниться")
         timestamp = time.time() + wait_time
         while time.time() < timestamp:
             element = self.app.driver.find_elements(*LoginLocators.LOGOUT_BUTTON)
@@ -55,11 +59,3 @@ class LoginPage:
 
     def login_auth_alert_get_text(self):
         return self.login_auth_alert().text
-
-    def allure_attach(self):
-        with allure.step("Делаем скриншот"):
-            allure.attach(
-                self.app.driver.get_screenshot_as_png(),
-                name="Screenshot",
-                attachment_type=AttachmentType.PNG,
-            )

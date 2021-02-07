@@ -1,4 +1,4 @@
-from locators.registration import RegistrationLocators
+from locators.registration import RegistrationLocators, HeaderLocator
 
 
 class RegistrationPage:
@@ -93,7 +93,7 @@ class RegistrationPage:
         return self.app.driver.find_element(*RegistrationLocators.REGISTER_BUTTON)
 
     def account_header(self):
-        return self.app.driver.find_element(*RegistrationLocators.ACCOUNT_HEADER).text
+        return self.app.driver.find_element(*HeaderLocator.ACCOUNT_HEADER).text
 
     def go_to_registration_form(self, email):
         self.sign_in_header_button().click()

@@ -17,7 +17,6 @@ class ProceedToCheckoutLocators:
         By.XPATH,
         '//button[@class="button btn btn-default standard-checkout ' 'button-medium"]',
     )
-
     PAYMENT_INFO = (By.XPATH, "//tbody")
     PAY_BY_BANK_WIRE = (By.XPATH, '//a[@class="bankwire"]')
     CONFIRM_MY_ORDER = (
