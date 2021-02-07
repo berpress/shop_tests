@@ -24,6 +24,7 @@ class Address:
     def __init__(
         self,
         company,
+        email,
         address,
         city,
         country,
@@ -32,6 +33,7 @@ class Address:
         street,
     ):
         self.company = company
+        self.email = email
         self.address = address
         self.city = city
         self.country = country
@@ -43,6 +45,7 @@ class Address:
     def random():
         return Address(
             company=fake.company(),
+            email=fake.email(),
             address=fake.address(),
             city=fake.city(),
             country=fake.country(),
@@ -66,4 +69,23 @@ class Date:
             month=fake.month(),
             month_name=fake.month_name(),
             day=fake.day_of_month(),
+        )
+
+
+class PersonalInformationData:
+    def __init__(self, login, password, firstname, lastname, years):
+        self.login = login
+        self.password = password
+        self.firstname = firstname
+        self.lastname = lastname
+        self.years = years
+
+    @staticmethod
+    def random():
+        return PersonalInformationData(
+            login=fake.email(),
+            password=fake.password(),
+            firstname=fake.first_name(),
+            lastname=fake.last_name(),
+            years=fake.year(),
         )

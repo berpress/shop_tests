@@ -2,9 +2,11 @@ from selenium.webdriver.common.by import By
 
 
 class RegistrationLocators:
+    
+    WRONG_EMAIL_ALERT = (By.ID, "create_account_error")
 
     SIGN_IN_BUTTON = (By.CLASS_NAME, "header_user_info")
-    EMAIL_CREATE = (By.XPATH, '//*[@id="email_create"]')
+    EMAIL_CREATE = (By.ID, "email_create")
     CREATE_ACCOUNT_BUTTON = (By.XPATH, '//*[@id="SubmitCreate"]')
     HEADING = (By.CLASS_NAME, "page-subheading")
     MR_RADIOBUTTON = (By.ID, "id_gender1")
@@ -40,3 +42,4 @@ class RegistrationLocators:
     REGISTER_BUTTON = (By.ID, "submitAccount")
 
     ACCOUNT_HEADER = (By.XPATH, '//*[@class="page-heading"]')
+    ERRORS = (By.XPATH, '//*[@class="alert alert-danger"]')

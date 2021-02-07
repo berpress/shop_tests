@@ -1,7 +1,5 @@
 import logging
-
 from selenium.webdriver.support.select import Select
-
 from common.logger import setup
 from locators.proceed_to_checkout import ProceedToCheckoutLocators
 
