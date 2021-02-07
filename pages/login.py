@@ -32,7 +32,6 @@ class LoginPage:
         logger.info(
             f"Пытаемся залогиниться с помощью емейла: {email} и пароля: {password}"
         )
-        self.app.driver.implicitly_wait(10)
         self.sign_button_click()
         if email is not None:
             self._email_input().send_keys(email)

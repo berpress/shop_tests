@@ -10,6 +10,6 @@ class TestMyCreditSlips:
         1. Открыть страницу
         2. Кликнуть на кнопку My Credit Slips
         """
-        app.my_credit_slips.check()
+        app.credit_slips_button_click()
         assert app.my_credit_slips.my_c_s_field_text() == MyCreditSlips.MY_CREDIT_SLIPS
         app.login.logout_button_click()
