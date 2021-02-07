@@ -3,7 +3,7 @@ from faker import Faker
 fake = Faker("ru_Ru")
 
 
-class RegData:
+class UserData:
     def __init__(self, login, password, first_name, last_name):
         self.login = login
         self.password = password
@@ -12,7 +12,7 @@ class RegData:
 
     @staticmethod
     def random():
-        return RegData(
+        return UserData(
             login=fake.email(),
             password=fake.password(),
             first_name=fake.first_name(),

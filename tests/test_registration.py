@@ -21,8 +21,8 @@ class TestRegistration:
         app.registration.go_to_registration_form(email)
         app.registration.fill_personal_information(user)
         app.registration.fill_address(
-            user.first_name,
-            user.last_name,
+            user.firstname,
+            user.lastname,
             addr.address,
             addr.city,
             addr.country,
