@@ -34,6 +34,7 @@ class Application:
             )
         except ValueError:
             self.driver = webdriver.Chrome(r"C:\chromedriver.exe", options=options)
+        self.driver.implicitly_wait(10)
         self.login = LoginPage(self)
         self.my_addresses = MyAddressesPage(self)
         self.contact_us = ContactUsPage(self)
@@ -53,9 +54,6 @@ class Application:
 
     def open_page(self, url: str):
         self.driver.get(f"{self.url}{url}")
-
-    def implicitly_wait(self):
-        self.driver.implicitly_wait(10)
 
     def browser_close(self):
         self.driver.quit()

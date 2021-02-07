@@ -24,7 +24,9 @@ class TestProceedToCHeckout:
         )
         app.login.logout_button_click()
 
-    @pytest.mark.skip
+    @pytest.mark.skip(
+        reason="Потому что тест не работает и из-за него падает следующий"
+    )
     def test_proceed_to_checkout_with_new_address(self, app, login):
         """
         1. Открыть страницу

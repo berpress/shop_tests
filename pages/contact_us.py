@@ -46,7 +46,6 @@ class ContactUsPage:
         ).is_displayed()
 
     def fill_contact_us_form(self, value, address, order, message):
-        self.app.implicitly_wait()
         self.subject_heading().select_by_value(value)
         self.email_address().send_keys(address)
         self.order_reference().send_keys(order)

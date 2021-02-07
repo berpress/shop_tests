@@ -1,13 +1,13 @@
+from common.base import BaseClass
 from common.constants import Registration
 from locators.registration import RegistrationLocators
-from models.exception import NoneTypeError
 import logging
 
 
 logger = logging.getLogger()
 
 
-class RegistrationPage:
+class RegistrationPage(BaseClass):
     def __init__(self, app):
         self.app = app
 
@@ -99,7 +99,6 @@ class RegistrationPage:
         return self.app.driver.find_element(*RegistrationLocators.REGISTER_BUTTON)
 
     def account_header(self):
-        self.app.implicitly_wait()
         return self.app.driver.find_element(*RegistrationLocators.ACCOUNT_HEADER).text
 
     def go_to_registration_form(self, email):
@@ -109,59 +108,37 @@ class RegistrationPage:
 
     def fill_personal_information(self, passwd, firstname, lastname, years):
         """Заполнение секции Your personal information"""
-        self.app.implicitly_wait()
-        logger.info("Выбор пола")
+        logger.info(
+            f"Пытаемся заполнить личные данные значениями"
+            f" {passwd}{firstname}{lastname}{years}"
+        )
         self.mrs_radiobutton().click()
-        logger.info("Заполнение поля firstname")
-        self.firstname().send_keys(self.check_param(firstname))
-        logger.info("Заполнение поля lastname")
-        self.lastname().send_keys(self.check_param(lastname))
-        logger.info("Заполнение поля password")
-        self.passwd().send_keys(self.check_param(passwd))
-        logger.info("Заполнение поля date")
-        self.days().send_keys(Registration.DATE)
-        logger.info("Заполнение поля month")
-        self.months().send_keys(Registration.MONTH)
-        logger.info("Заполнение поля years")
-        self.years().send_keys(years)
-        logger.info("Выбор чекбокса newsletter")
+        self.input_value(self.firstname(), firstname)
+        self.input_value(self.lastname(), lastname)
+        self.input_value(self.passwd(), passwd)
+        self.input_value(self.days(), Registration.DATE)
+        self.input_value(self.months(), Registration.MONTH)
+        self.input_value(self.years(), years)
         self.newsletter_checkbox().click()
-        logger.info("Выбор чекбокса special_offers")
         self.optin_checkbox().click()
-
-    def check_param(self, param):
-        if param is not None:
-            return param
-        else:
-            raise NoneTypeError
 
     def fill_address(self, first_name, last_name, address, city, country, phone):
         """Заполнение секции Your address"""
-        logger.info("Заполнение поля first_name")
-        self.first_name().send_keys(self.check_param(first_name))
-        logger.info("Заполнение поля last_name")
-        self.last_name().send_keys(self.check_param(last_name))
-        logger.info("Заполнение поля company")
-        self.company().send_keys(self.check_param(Registration.COMPANY))
-        logger.info("Заполнение поля address_line1")
-        self.address_line1().send_keys(self.check_param(address))
-        logger.info("Заполнение поля address_line2")
-        self.address_line2().send_keys(self.check_param(Registration.ADDRESS2))
-        logger.info("Заполнение поля city")
-        self.city().send_keys(self.check_param(city))
-        logger.info("Заполнение поля state")
-        self.state().send_keys(self.check_param(Registration.STATE))
-        logger.info("Заполнение поля postal_code")
-        self.postal_code().send_keys(self.check_param(Registration.POSTAL_CODE))
-        logger.info("Заполнение поля country")
-        self.country().send_keys(self.check_param(country))
-        logger.info("Заполнение поля additional_info")
-        self.additional_info().send_keys(self.check_param(Registration.ADDITIONAL_INFO))
-        logger.info("Заполнение поля home_phone")
-        self.home_phone().send_keys(self.check_param(phone))
-        logger.info("Заполнение поля mobile_phone")
-        self.mobile_phone().send_keys(self.check_param(phone))
-        logger.info("Заполнение поля address_alias")
-        self.address_alias().send_keys(self.check_param(Registration.ADDRESS_ALIAS))
-        logger.info("Клик на кнопку Register")
+        logger.info(
+            f"Пытаемся заполнить личные данные значениями "
+            f"{first_name}{last_name}{address}{city}{country}{phone}"
+        )
+        self.input_value(self.first_name(), first_name)
+        self.input_value(self.last_name(), last_name)
+        self.input_value(self.company(), Registration.COMPANY)
+        self.input_value(self.address_line1(), address)
+        self.input_value(self.address_line2(), Registration.ADDRESS2)
+        self.input_value(self.city(), city)
+        self.input_value(self.state(), Registration.STATE)
+        self.input_value(self.postal_code(), Registration.POSTAL_CODE)
+        self.input_value(self.country(), country)
+        self.input_value(self.additional_info(), Registration.ADDITIONAL_INFO)
+        self.input_value(self.home_phone(), phone)
+        self.input_value(self.mobile_phone(), phone)
+        self.input_value(self.address_alias(), Registration.ADDRESS_ALIAS)
         self.register_button().click()

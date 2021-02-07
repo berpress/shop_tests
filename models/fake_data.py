@@ -67,3 +67,22 @@ class Date:
             month_name=fake.month_name(),
             day=fake.day_of_month(),
         )
+
+
+class PersonalInformationData:
+    def __init__(self, login, password, firstname, lastname, years):
+        self.login = login
+        self.password = password
+        self.firstname = firstname
+        self.lastname = lastname
+        self.years = years
+
+    @staticmethod
+    def random():
+        return PersonalInformationData(
+            login=fake.email(),
+            password=fake.password(),
+            firstname=fake.first_name(),
+            lastname=fake.last_name(),
+            years=fake.year(),
+        )

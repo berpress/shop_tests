@@ -27,7 +27,6 @@ class LoginPage:
         return self.app.driver.find_element(*LoginLocators.SUBMIT_BUTTON)
 
     def auth(self, email: str, password: str):
-        self.app.implicitly_wait()
         self.sign_button_click()
         if email is not None:
             self._email_input().send_keys(email)
