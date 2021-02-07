@@ -1,4 +1,5 @@
 from locators.registration import RegistrationLocators
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -11,11 +12,13 @@ class RegistrationPage:
     def wrong_email_alert(self, message):
         """Ожидание появления в алерте нужного текста."""
         wait = WebDriverWait(self.app.driver, 10)
-        is_text = wait.until(EC.text_to_be_present_in_element((RegistrationLocators.WRONG_EMAIL_ALERT), message))
-        if is_text:
-            return message
-        else:
-            False
+        try:
+            is_text = wait.until(EC.text_to_be_present_in_element((RegistrationLocators.WRONG_EMAIL_ALERT), message))
+            if is_text:
+                return self.app.driver.find_element(*RegistrationLocators.WRONG_EMAIL_ALERT).text
+            return False
+        except TimeoutException:
+            return False
 
 
     def sign_in_header_button(self):

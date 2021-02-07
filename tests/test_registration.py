@@ -55,8 +55,9 @@ class TestRegistration:
         """
         app.open_main_page()
         app.registration.go_to_registration_form(email)
+        error_message = str(app.registration.wrong_email_alert(expected_result))
 
-        assert expected_result in app.registration.wrong_email_alert(expected_result), "Текст ошибки не соответствует ожидаемому"
+        assert expected_result in error_message, f"Текст ошибки не соответствует ожидаемому. Текст ошибки:\n {error_message}\n, ожидаемый результат:\n {expected_result}"
 
     @pytest.mark.parametrize(
         "firstname, lastname, address1, city, expected_result",
