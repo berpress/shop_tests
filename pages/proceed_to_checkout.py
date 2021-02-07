@@ -35,9 +35,7 @@ class ShoppingCartPage:
         )
 
     def check_address_info(self):
-        """Проверяется что выбранный адрес из
-        второго теста соотвествует нужному адресу."""
-        logger.info("Проверка информации о адресе во вкладке Address")
+        logger.info("Проверка строк выбранного в попапе адреса при оформлении заказа")
         return [i.text for i in self.delivery_address()]
 
     def address_proceed_to_checkout_button(self):
@@ -64,8 +62,10 @@ class ShoppingCartPage:
         return self.app.driver.find_elements(*ProceedToCheckoutLocators.PAYMENT_INFO)
 
     def check_payment_info(self):
-        """Проверяется что выбранный товар в корзине."""
-        logger.info("Проверка информации о выбранном товаре во вкладке Payment")
+        logger.info(
+            "Проверка информации о выбранном товаре во вкладке "
+            "Payment при оформлении заказа"
+        )
         return [i.text for i in self.payment_info()]
 
     def pay_by_bank_wire_button(self):
