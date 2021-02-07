@@ -100,16 +100,16 @@ class RegistrationPage:
         self.email_field().send_keys(email)
         self.create_account_button().click()
 
-    def fill_personal_information(self, RegData):
+    def fill_personal_information(self, regdata):
         """Заполнение секции Your personal information"""
         self.app.driver.implicitly_wait(10)
         self.mrs_radiobutton().click()
-        self.firstname().send_keys(RegData.firstname)
-        self.lastname().send_keys(RegData.lastname)
-        self.passwd().send_keys(RegData.passwd)
+        self.firstname().send_keys(regdata.firstname)
+        self.lastname().send_keys(regdata.lastname)
+        self.passwd().send_keys(regdata.passwd)
         self.days().send_keys("13")
         self.months().send_keys("January")
-        self.years().send_keys(RegData.years)
+        self.years().send_keys(regdata.years)
         self.newsletter_checkbox().click()
         self.optin_checkbox().click()
 

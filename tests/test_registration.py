@@ -1,4 +1,4 @@
-from models.fake_data import UserData, Address, Date
+from models.fake_data import RegData, Address
 import allure
 
 
@@ -14,15 +14,12 @@ class TestRegistration:
         5. Заполнить все поля на форме
         6. Нажать кнопку Register
         """
-        user = UserData.random()
+        user = RegData.random()
         email = user.login
-        date = Date.random()
         addr = Address.random()
         app.open_main_page()
         app.registration.go_to_registration_form(email)
-        app.registration.fill_personal_information(
-            user.password, user.first_name, user.last_name, date.year
-        )
+        app.registration.fill_personal_information(user)
         app.registration.fill_address(
             user.first_name,
             user.last_name,
