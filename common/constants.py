@@ -35,11 +35,24 @@ class MyCreditSlips:
     MY_CREDIT_SLIPS = "CREDIT SLIPS"
 
 
+class MyAccount:
+    MY_ACCOUNT = "MY ACCOUNT"
+
+    
 class MyOrdersPage:
     ORDER_HISTORY = "ORDER HISTORY"
 
 
 class Registration:
+    DATE = "13"
+    MONTH = "January"
+    COMPANY = "blah"
+    ADDRESS2 = "blah"
+    STATE = "Iowa"
+    POSTAL_CODE = "45212"
+    ADDITIONAL_INFO = "blah"
+    ADDRESS_ALIAS = "blah"
+    FIRST_NAME = None
     EMAIL_ERROR = "Invalid email address"
     EMAIL_EXISTS = "has already been registered"
     LASTNAME_REQUIRED = "lastname is required"

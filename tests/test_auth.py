@@ -38,4 +38,3 @@ class TestAuth:
         app.open_main_page()
         app.login.auth(email=email, password=password)
         assert app.login.login_auth_alert_get_text() == alert
-        app.login.allure_attach()

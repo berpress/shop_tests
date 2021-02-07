@@ -7,6 +7,8 @@ class TestContactUs:
     def test_contact_header(self, app):
         """
         1. Открыть страницу по ссылке из хедера
+        2. Заполнить все поля формы
+        3. Проверяем успешную отправку сообщения
         """
         app.open_main_page()
         app.contact_us.contact_us_header_button_click()

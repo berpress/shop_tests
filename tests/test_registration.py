@@ -1,3 +1,6 @@
+from common.constants import MyAccount
+from models.fake_data import PersonalInformationData, Address
+
 from common.constants import Users, Registration as reg, RandomData as rand
 import allure
 import pytest
@@ -17,6 +20,9 @@ class TestRegistration:
         5. Заполнить все поля на форме
         6. Нажать кнопку Register
         """
+        user = PersonalInformationData.random()
+        email = user.login
+        addr = Address.random()
         app.open_main_page()
         app.registration.go_to_registration_form(rand.email)
         app.registration.fill_personal_information(
@@ -82,15 +88,14 @@ class TestRegistration:
         app.open_main_page()
         app.registration.go_to_registration_form(rand.addr.email)
         app.registration.fill_personal_information(
-            rand.user.password, firstname, lastname, rand.date.year
+            user.password, user.firstname, user.lastname, user.years
         )
         app.registration.fill_address(
-            rand.user.first_name,
-            rand.user.last_name,
-            address1,
-            city,
-            rand.addr.country,
-            rand.addr.phone,
+            user.firstname,
+            user.lastname,
+            addr.address,
+            addr.city,
+            addr.country,
+            addr.phone,
         )
-        error_text = app.registration.errors()
-        assert expected_result in error_text, "Тест упал. Текст ошибки не совпадает с ожидаемым"
+        assert app.registration.account_header() == MyAccount.MY_ACCOUNT, "Тест упал. Текст ошибки не совпадает с ожидаемым"
