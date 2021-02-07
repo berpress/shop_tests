@@ -29,7 +29,9 @@ class LoginPage:
         return self.app.driver.find_element(*LoginLocators.SUBMIT_BUTTON)
 
     def auth(self, email: str, password: str):
-        logger.info("Пытаемся залогиниться")
+        logger.info(
+            f"Пытаемся залогиниться с помощью емейла: {email} и пароля: {password}"
+        )
         self.app.driver.implicitly_wait(10)
         self.sign_button_click()
         if email is not None:

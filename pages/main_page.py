@@ -27,10 +27,13 @@ class SearchGoods:
 
     def check_found_item(self, str):
         """Проверка заголовков найденных элементов на вхождение строки"""
-        logger.info("Пытаемся найти результаты поиска")
+        logger.info(
+            f"Пытаемся найти результаты поиска,"
+            f" поиск происходил с помощью значения {str}"
+        )
         list = self.found_items()
         for i in list:
             if i.text.lower().find(str.lower()) != -1:
                 return True
-        logger.info("Результаты поиска не найдены")
+        logger.error("Результаты поиска не найдены")
         return False

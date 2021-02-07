@@ -1,17 +1,19 @@
+import faker
+
+
 class ContactUsData:
-    def __init__(self, element, value, address, order, message):
-        self.element = element
+    def __init__(self, value, address, order, message):
         self.value = value
         self.address = address
         self.order = order
         self.message = message
 
-    def input_value(self, element, value, address, order, message):
-        if value is not None:
-            self.element.select_by_value(value)
-        if address is not None:
-            self.element.send_keys(address)
-        if order is not None:
-            self.element.send_keys(order)
-        if message is not None:
-            self.element.send_keys(message)
+    @staticmethod
+    def random():
+        fake = faker.Faker()
+        return ContactUsData(
+            value="1",
+            address=fake.email(),
+            order=fake.postcode(),
+            message="Random Message",
+        )
