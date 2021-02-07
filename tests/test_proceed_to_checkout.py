@@ -1,5 +1,6 @@
 import pytest
 from common.shop_value import ShopValues
+import pytest
 
 
 class TestProceedToCHeckout:
@@ -23,6 +24,7 @@ class TestProceedToCHeckout:
             == ShopValues.COMPLETE_INFO[0]
         )
         app.login.logout_button_click()
+
 
     @pytest.mark.skip(
         reason="Потому что тест не работает и из-за него падает следующий"
