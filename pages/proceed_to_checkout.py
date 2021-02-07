@@ -101,18 +101,18 @@ class ShoppingCartPage:
         self.pay_by_bank_wire_button_click()
         self.confirm_my_order_button_click()
 
-    def buying_with_new_address_one_step(self):
-        """Функция для теста, где выбирается второй адресс."""
+    def select_new_address(self):
+        """Функция для теста, где выбирается второй адрес."""
         self.summary_proceed_to_checkout_button_click()
         self.address_pop_up_button_click()
 
-    def buying_with_new_address_two_step(self):
-        """Функция для теста, где выбирается второй адресс."""
+    def confirm_shipping_for_new_address(self):
+        """Функция для теста, где выбирается второй адрес."""
         self.address_proceed_to_checkout_button_click()
         self.shipping_checkbox_click()
         self.shipping_proceed_to_checkout_button_click()
 
-    def buying_with_new_address_three_step(self):
-        """Функция для теста, где выбирается второй адресс."""
+    def choose_pay_for_new_address(self):
+        """Функция для теста, где выбирается второй адрес."""
         self.pay_by_bank_wire_button_click()
         self.confirm_my_order_button_click()
