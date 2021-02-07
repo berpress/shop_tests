@@ -36,7 +36,7 @@ class TestProceedToCHeckout:
         app.women_category_page.move_to_good()
         app.women_category_page.proceed_to_checkout()
         app.shopping_cart.buying_with_new_address_one_step()
-        assert app.shopping_cart.delivery_address_info() == ShopValues.DELIVERY_INFO
+        assert app.shopping_cart.check_address_info() == ShopValues.DELIVERY_INFO
         app.shopping_cart.buying_with_new_address_two_step()
         assert app.shopping_cart.check_payment_info() == ShopValues.VALUE_GOOD
         app.shopping_cart.buying_with_new_address_three_step()

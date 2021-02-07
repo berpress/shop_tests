@@ -34,7 +34,7 @@ class ShoppingCartPage:
             *ProceedToCheckoutLocators.DELIVERY_ADDRESS_INFO
         )
 
-    def delivery_address_info(self):
+    def check_address_info(self):
         """Проверяется что выбранный адрес из
         второго теста соотвествует нужному адресу."""
         logger.info("Проверка информации о адресе во вкладке Address")
