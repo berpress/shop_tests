@@ -9,7 +9,7 @@ class TestAuth:
 
     @allure.story("Авторизация")
     @allure.severity("blocker")
-    def test_auth_shop(self, app, login):
+    def test_auth_shop(self, app):
         """
         1. Открыть страницу
         2. Кликнуть на login button

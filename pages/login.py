@@ -1,12 +1,13 @@
 import logging
 import time
 
+from common.base import BaseClass
 from locators.login import LoginLocators
 
 logger = logging.getLogger()
 
 
-class LoginPage:
+class LoginPage(BaseClass):
     def __init__(self, app):
         self.app = app
 
@@ -33,10 +34,8 @@ class LoginPage:
             f"Пытаемся залогиниться с помощью емейла: {email} и пароля: {password}"
         )
         self.sign_button_click()
-        if email is not None:
-            self._email_input().send_keys(email)
-        if password is not None:
-            self._password_input().send_keys(password)
+        self.input_value(self._email_input(), email)
+        self.input_value(self._password_input(), password)
         self._submit_button().click()
 
     def logout_button(self, wait_time=5):
