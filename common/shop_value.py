@@ -11,6 +11,7 @@ class ShopValues:
     )
 
     DELIVERY_INFO = [
-        "YOUR DELIVERY ADDRESS\nasddsa sadsad\ntest\ntest, Kentucky 00000\nUnited "
+        "YOUR DELIVERY ADDRESS\nasddsa "
+        "sadsad\ntest\ntest, Kentucky 00000\nUnited "
         "States\n2121212121\n21212212121\nUpdate"
     ]

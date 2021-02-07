@@ -1,9 +1,33 @@
+from locators.registration import RegistrationLocators, HeaderLocator
+from common.base import BaseClass
+from common.constants import Registration
 from locators.registration import RegistrationLocators
+import logging
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
-class RegistrationPage:
+
+logger = logging.getLogger()
+
+
+class RegistrationPage(BaseClass):
     def __init__(self, app):
         self.app = app
+
+
+    def wrong_email_alert(self, message):
+        """Ожидание появления в алерте нужного текста."""
+        wait = WebDriverWait(self.app.driver, 10)
+        try:
+            is_text = wait.until(EC.text_to_be_present_in_element((RegistrationLocators.WRONG_EMAIL_ALERT), message))
+            if is_text:
+                return self.app.driver.find_element(*RegistrationLocators.WRONG_EMAIL_ALERT).text
+            return False
+        except TimeoutException:
+            return False
+
 
     def sign_in_header_button(self):
         return self.app.driver.find_element(*RegistrationLocators.SIGN_IN_BUTTON)
@@ -92,40 +116,50 @@ class RegistrationPage:
     def register_button(self):
         return self.app.driver.find_element(*RegistrationLocators.REGISTER_BUTTON)
 
+    def errors(self):
+        return self.app.driver.find_element(*RegistrationLocators.ERRORS).text
+
     def account_header(self):
-        return self.app.driver.find_element(*RegistrationLocators.ACCOUNT_HEADER).text
+        return self.app.driver.find_element(*HeaderLocator.ACCOUNT_HEADER).text
 
     def go_to_registration_form(self, email):
         self.sign_in_header_button().click()
         self.email_field().send_keys(email)
         self.create_account_button().click()
 
-    def fill_personal_information(self, passwd, firstname, lastname, years):
+    def fill_personal_information(self, regdata):
         """Заполнение секции Your personal information"""
-        self.app.driver.implicitly_wait(10)
+        logger.info(
+            f"Пытаемся заполнить личные данные значениями"
+            f" {passwd}, {firstname}, {lastname}, {years}"
+        )
         self.mrs_radiobutton().click()
-        self.firstname().send_keys(firstname)
-        self.lastname().send_keys(lastname)
-        self.passwd().send_keys(passwd)
-        self.days().send_keys("13")
-        self.months().send_keys("January")
-        self.years().send_keys(years)
+        self.input_value(self.firstname(), regdata.firstname)
+        self.input_value(self.lastname(), regdata.lastname)
+        self.input_value(self.passwd(), regdata.passwd)
+        self.input_value(self.days(), Registration.DATE)
+        self.input_value(self.months(), Registration.MONTH)
+        self.input_value(self.years(), regdata.years)
         self.newsletter_checkbox().click()
         self.optin_checkbox().click()
 
     def fill_address(self, first_name, last_name, address, city, country, phone):
         """Заполнение секции Your address"""
-        self.first_name().send_keys(first_name)
-        self.last_name().send_keys(last_name)
-        self.company().send_keys("blah")
-        self.address_line1().send_keys(address)
-        self.address_line2().send_keys("blah")
-        self.city().send_keys(city)
-        self.state().send_keys("Iowa")
-        self.postal_code().send_keys("45212")
-        self.country().send_keys(country)
-        self.additional_info().send_keys("blah")
-        self.home_phone().send_keys(phone)
-        self.mobile_phone().send_keys(phone)
-        self.address_alias().send_keys("blah")
+        logger.info(
+            f"Пытаемся заполнить личные данные значениями "
+            f"{first_name}, {last_name}, {address}, {city}, {country}, {phone}"
+        )
+        self.input_value(self.first_name(), first_name)
+        self.input_value(self.last_name(), last_name)
+        self.input_value(self.company(), Registration.COMPANY)
+        self.input_value(self.address_line1(), address)
+        self.input_value(self.address_line2(), Registration.ADDRESS2)
+        self.input_value(self.city(), city)
+        self.input_value(self.state(), Registration.STATE)
+        self.input_value(self.postal_code(), Registration.POSTAL_CODE)
+        self.input_value(self.country(), country)
+        self.input_value(self.additional_info(), Registration.ADDITIONAL_INFO)
+        self.input_value(self.home_phone(), phone)
+        self.input_value(self.mobile_phone(), phone)
+        self.input_value(self.address_alias(), Registration.ADDRESS_ALIAS)
         self.register_button().click()

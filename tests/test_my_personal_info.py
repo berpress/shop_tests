@@ -11,6 +11,6 @@ class TestMyPersonalInfo:
         3. Проверить данные в First Name и Last Name
         """
 
-        app.personal_info.check()
+        app.personal_info.person_info_button_click()
         assert app.personal_info.get_name() == "Ivan"
         assert app.personal_info.get_lastname() == "Ivanov"
