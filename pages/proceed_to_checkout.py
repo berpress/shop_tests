@@ -86,7 +86,6 @@ class ShoppingCartPage:
         )
 
     def check_my_store_complete_info(self):
-        """Проверяется переход на страницу купленного товара."""
         logger.info("Проверка информации купленного товара")
         data_info = [i.text for i in self.my_store_complete_info()]
         data_info_st = str(data_info[0])
