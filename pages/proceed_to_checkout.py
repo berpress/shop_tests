@@ -89,6 +89,7 @@ class ShoppingCartPage:
         logger.info("Проверка информации купленного товара")
         data_info = [i.text for i in self.my_store_complete_info()]
         data_info_st = str(data_info[0])
+        """Срез строки по трек-номеру, который меняется"""
         return data_info_st[0:215]
 
     def buying_one_step(self):
