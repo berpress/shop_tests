@@ -16,4 +16,4 @@ class TestAddToCart:
         app.women_category_page.women_category()
         app.women_category_page.move_to_good()
         app.women_category_page.proceed_to_checkout()
-        assert app.order_page.your_shopping_cart() == Cart.YOUR_SHOPPING_CART
+        assert app.order_page.shop_cart() == Cart.YOUR_SHOPPING_CART

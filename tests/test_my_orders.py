@@ -1,7 +1,6 @@
 import allure
 
 from common.constants import MyOrdersPage
-from pages.application import logger
 
 
 class TestMyOrders:
@@ -13,6 +12,5 @@ class TestMyOrders:
         2. Кликнуть на кнопку My Orders
         """
         app.my_orders.my_orders_button_click()
-        logger.info("Открытие страницы с заказами")
         assert app.my_orders.header_text() == MyOrdersPage.ORDER_HISTORY
         app.login.logout_button_click()
