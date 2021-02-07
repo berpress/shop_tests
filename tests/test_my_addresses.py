@@ -29,4 +29,3 @@ class TestMyAddresses:
         assert app.my_addresses.get_country_name() == MyAddressesValues.country_name
         assert app.my_addresses.get_phone() == MyAddressesValues.phone
         assert app.my_addresses.get_phone_mobile() == MyAddressesValues.phone_mobile
-        app.login.logout_button_click()
