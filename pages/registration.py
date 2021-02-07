@@ -2,6 +2,10 @@ from common.base import BaseClass
 from common.constants import Registration
 from locators.registration import RegistrationLocators
 import logging
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
 
 
 logger = logging.getLogger()
@@ -10,6 +14,19 @@ logger = logging.getLogger()
 class RegistrationPage(BaseClass):
     def __init__(self, app):
         self.app = app
+
+
+    def wrong_email_alert(self, message):
+        """Ожидание появления в алерте нужного текста."""
+        wait = WebDriverWait(self.app.driver, 10)
+        try:
+            is_text = wait.until(EC.text_to_be_present_in_element((RegistrationLocators.WRONG_EMAIL_ALERT), message))
+            if is_text:
+                return self.app.driver.find_element(*RegistrationLocators.WRONG_EMAIL_ALERT).text
+            return False
+        except TimeoutException:
+            return False
+
 
     def sign_in_header_button(self):
         return self.app.driver.find_element(*RegistrationLocators.SIGN_IN_BUTTON)
@@ -97,6 +114,9 @@ class RegistrationPage(BaseClass):
 
     def register_button(self):
         return self.app.driver.find_element(*RegistrationLocators.REGISTER_BUTTON)
+
+    def errors(self):
+        return self.app.driver.find_element(*RegistrationLocators.ERRORS).text
 
     def account_header(self):
         return self.app.driver.find_element(*RegistrationLocators.ACCOUNT_HEADER).text

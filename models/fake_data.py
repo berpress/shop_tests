@@ -24,6 +24,7 @@ class Address:
     def __init__(
         self,
         company,
+        email,
         address,
         city,
         country,
@@ -32,6 +33,7 @@ class Address:
         street,
     ):
         self.company = company
+        self.email = email
         self.address = address
         self.city = city
         self.country = country
@@ -43,6 +45,7 @@ class Address:
     def random():
         return Address(
             company=fake.company(),
+            email=fake.email(),
             address=fake.address(),
             city=fake.city(),
             country=fake.country(),
