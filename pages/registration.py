@@ -1,3 +1,4 @@
+from locators.registration import RegistrationLocators, HeaderLocator
 from common.base import BaseClass
 from common.constants import Registration
 from locators.registration import RegistrationLocators
@@ -119,26 +120,26 @@ class RegistrationPage(BaseClass):
         return self.app.driver.find_element(*RegistrationLocators.ERRORS).text
 
     def account_header(self):
-        return self.app.driver.find_element(*RegistrationLocators.ACCOUNT_HEADER).text
+        return self.app.driver.find_element(*HeaderLocator.ACCOUNT_HEADER).text
 
     def go_to_registration_form(self, email):
         self.sign_in_header_button().click()
         self.email_field().send_keys(email)
         self.create_account_button().click()
 
-    def fill_personal_information(self, passwd, firstname, lastname, years):
+    def fill_personal_information(self, regdata):
         """Заполнение секции Your personal information"""
         logger.info(
             f"Пытаемся заполнить личные данные значениями"
             f" {passwd}, {firstname}, {lastname}, {years}"
         )
         self.mrs_radiobutton().click()
-        self.input_value(self.firstname(), firstname)
-        self.input_value(self.lastname(), lastname)
-        self.input_value(self.passwd(), passwd)
+        self.input_value(self.firstname(), regdata.firstname)
+        self.input_value(self.lastname(), regdata.lastname)
+        self.input_value(self.passwd(), regdata.passwd)
         self.input_value(self.days(), Registration.DATE)
         self.input_value(self.months(), Registration.MONTH)
-        self.input_value(self.years(), years)
+        self.input_value(self.years(), regdata.years)
         self.newsletter_checkbox().click()
         self.optin_checkbox().click()
 

@@ -35,6 +35,9 @@ class MyCreditSlips:
     MY_CREDIT_SLIPS = "CREDIT SLIPS"
 
 
+class MyOrdersPage:
+    ORDER_HISTORY = "ORDER HISTORY"
+
 class MyAccount:
     MY_ACCOUNT = "MY ACCOUNT"
 

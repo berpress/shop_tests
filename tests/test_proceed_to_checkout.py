@@ -40,11 +40,11 @@ class TestProceedToCHeckout:
         app.women_category_page.women_category()
         app.women_category_page.move_to_good()
         app.women_category_page.proceed_to_checkout()
-        app.shopping_cart.buying_with_new_address_one_step()
-        assert app.shopping_cart.delivery_address_info() == ShopValues.DELIVERY_INFO
-        app.shopping_cart.buying_with_new_address_two_step()
+        app.shopping_cart.select_new_address()
+        assert app.shopping_cart.check_address_info() == ShopValues.DELIVERY_INFO
+        app.shopping_cart.confirm_shipping_for_new_address()
         assert app.shopping_cart.check_payment_info() == ShopValues.VALUE_GOOD
-        app.shopping_cart.buying_with_new_address_three_step()
+        app.shopping_cart.choose_pay_for_new_address()
         assert (
             app.shopping_cart.check_my_store_complete_info()[0]
             == ShopValues.COMPLETE_INFO[0]

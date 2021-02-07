@@ -5,20 +5,13 @@ class MyPersonalInfoPage:
     def __init__(self, app):
         self.app = app
 
-    def my_personal_info_button(self):
+    def person_info_button(self):
         return self.app.driver.find_element(
             *MyPersonalInfoLocators.PERSONAL_INFO_BUTTON
         )
 
-    def my_personal_info_button_click(self):
-        self.my_personal_info_button().click()
-
-    def check(self):
-        """
-        Функция которая кликает по кнопке 'my_personal info',
-        добавлена для читабельности теста
-        """
-        self.my_personal_info_button_click()
+    def person_info_button_click(self):
+        self.person_info_button().click()
 
     def firstname_input(self):
         return self.app.driver.find_element(*MyPersonalInfoLocators.FIRSTNAME_BUTTON)
