@@ -9,7 +9,7 @@ class MyCreditSlipsPage:
         return self.app.driver.find_element(*MyCreditSlipsLocators.CREDIT_SLIPS_BUTTON)
 
     def credit_slips_button_click(self):
-        self.credit_slips_button().click()
+        return self.credit_slips_button().click()
 
     def header(self):
         return self.app.driver.find_element(*MyCreditSlipsLocators.CREDIT_SLIPS_TEXT)
